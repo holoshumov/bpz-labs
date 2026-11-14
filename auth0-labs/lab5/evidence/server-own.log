@@ -1,0 +1,6 @@
+[2026-11-14T23:40:31.298Z] ЛР5 слухає http://localhost:3000 (tenant=own dev-b5ra33c6diywgvbd.us.auth0.com, refresh threshold 60s)
+[2026-11-14T23:40:33.738Z] Login holoshumov.bpz.lab@example.com → OK (password), token eyJhbGciOi...kcvVgA
+[2026-11-14T23:40:34.492Z] GET / → 401: ERR_JWE_DECRYPTION_FAILED decryption operation failed
+[2026-11-14T23:40:35.169Z] GET / → 401: ERR_JWS_SIGNATURE_VERIFICATION_FAILED signature verification failed
+[2026-11-14T23:40:35.250Z] GET / → 401: ERR_JWS_SIGNATURE_VERIFICATION_FAILED signature verification failed
+[2026-11-14T23:40:35.251Z] GET / → 401: ERR_JOSE_ALG_NOT_ALLOWED "alg" (Algorithm) Header Parameter value not allowed

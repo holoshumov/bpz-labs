@@ -18,7 +18,10 @@ cp .env.example .env   # заповнити (див. нижче)
 
 Приклад: `TENANT=kpi node lab2/run.js`.
 
-Можливості tenant викладача (перевірено 14.11.2026):
+Власний tenant: `dev-b5ra33c6diywgvbd.us.auth0.com`. Налаштовано скриптом `scripts/setup-own-tenant.js` через Management API (адмін-застосунок M2M «API Explorer Application», ключі в `.env`):
+`BPZ Lab API` (`https://bpz-lab-api`, RS256, Allow Offline Access, TTL 120 с), застосунок `BPZ Lab App` (Regular Web; grant types Authorization Code, Refresh Token, Client Credentials, Password; Callback `http://localhost:3000`, `http://localhost:3000/callback`; Logout `http://localhost:3000`), доступ до Management API зі scopes на users/roles/role_members, Default Directory = `Username-Password-Authentication`. Лог: `evidence-setup/setup-own-tenant.log`.
+
+Можливості tenant'ів (перевірено 15.11.2026):
 
 | Операція | kpi | own |
 |---|---|---|

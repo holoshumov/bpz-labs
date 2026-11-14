@@ -1,0 +1,7 @@
+[2026-11-14T23:39:15.663Z] ЛР4 слухає http://localhost:3000 (tenant=own dev-b5ra33c6diywgvbd.us.auth0.com, refresh threshold 60s)
+[2026-11-14T23:39:18.217Z] Login holoshumov.bpz.lab@example.com → OK (password), token eyJhbGciOi...JTG6zA
+[2026-11-14T23:40:22.593Z] Токен спливає через 56 с (< 60) → refresh_token grant
+[2026-11-14T23:40:23.013Z] Токен оновлено: eyJhbGciOi...JTG6zA → eyJhbGciOi...LW9tDw, новий exp 2026-11-14T23:42:22.000Z
+[2026-11-14T23:40:23.670Z] Login holoshumov.bpz.lab@example.com → 401: Wrong email or password.
+[2026-11-14T23:40:23.915Z] Signup lab4-own-1794699623@example.com: Management-токен отримано новий, діє до 2026-11-15T23:40:23.000Z
+[2026-11-14T23:40:24.298Z] POST /api/v2/users lab4-own-1794699623@example.com → 201

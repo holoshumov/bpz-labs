@@ -1,0 +1,8 @@
+### GET /login (own)
+HTTP/1.1 302 Found
+Location: https://dev-b5ra33c6diywgvbd.us.auth0.com/authorize?client_id=blXIJdzCZkUJCXgX5uRWJmstjef0CjnA&redirect_uri=http%3A%2F%2Flocalhost%3A3000&response_type=code&response_mode=query&scope=openid+profile+email+offline_access&audience=https%3A%2F%2Fbpz-lab-api&state=…&code_challenge=…&code_challenge_method=S256
+### Auth0 /authorize → 302 https://dev-b5ra33c6diywgvbd.us.auth0.com/u/login?state=hKFo2SA2S2
+### callback з чужим state
+Invalid state. <a href="/">Назад</a> [400]
+### GET /logout → https://dev-b5ra33c6diywgvbd.us.auth0.com/v2/logout?client_id=blXIJdzCZkUJCXgX5uRWJmstjef0CjnA&returnTo=http%3A%2F%2Flocalhost%3A3000
+### Auth0 /v2/logout → 302 http://localhost:3000/

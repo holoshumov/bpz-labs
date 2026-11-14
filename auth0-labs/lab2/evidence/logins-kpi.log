@@ -19,3 +19,87 @@
   "iat": "2026-11-14T22:42:10.000Z",
   "exp": "2026-11-15T22:42:10.000Z"
 }
+[2026-11-14T22:47:11.326Z] [tenant=kpi kpi.eu.auth0.com] Вхід #3/10 → 200 (password-realm)
+{
+  "roles_requested": [
+    "admin"
+  ],
+  "roles_now": "недоступно (HTTP 403)",
+  "access_token": "eyJhbGciOi...WXX2UA",
+  "iat": "2026-11-14T22:47:11.000Z",
+  "exp": "2026-11-15T22:47:11.000Z"
+}
+[2026-11-14T22:52:12.122Z] [tenant=kpi kpi.eu.auth0.com] Вхід #4/10 → 200 (password-realm)
+{
+  "roles_requested": [
+    "viewer",
+    "editor"
+  ],
+  "roles_now": "недоступно (HTTP 403)",
+  "access_token": "eyJhbGciOi...a4tvrg",
+  "iat": "2026-11-14T22:52:12.000Z",
+  "exp": "2026-11-15T22:52:12.000Z"
+}
+[2026-11-14T22:57:12.887Z] [tenant=kpi kpi.eu.auth0.com] Вхід #5/10 → 200 (password-realm)
+{
+  "roles_requested": [
+    "editor",
+    "admin"
+  ],
+  "roles_now": "недоступно (HTTP 403)",
+  "access_token": "eyJhbGciOi...6y5VhQ",
+  "iat": "2026-11-14T22:57:12.000Z",
+  "exp": "2026-11-15T22:57:12.000Z"
+}
+[2026-11-14T23:02:13.742Z] [tenant=kpi kpi.eu.auth0.com] Вхід #6/10 → 200 (password-realm)
+{
+  "roles_requested": [
+    "viewer",
+    "admin"
+  ],
+  "roles_now": "недоступно (HTTP 403)",
+  "access_token": "eyJhbGciOi...vEuKuw",
+  "iat": "2026-11-14T23:02:13.000Z",
+  "exp": "2026-11-15T23:02:13.000Z"
+}
+[2026-11-14T23:07:14.511Z] [tenant=kpi kpi.eu.auth0.com] Вхід #7/10 → 200 (password-realm)
+{
+  "roles_requested": [
+    "viewer",
+    "editor",
+    "admin"
+  ],
+  "roles_now": "недоступно (HTTP 403)",
+  "access_token": "eyJhbGciOi...s6TdBQ",
+  "iat": "2026-11-14T23:07:14.000Z",
+  "exp": "2026-11-15T23:07:14.000Z"
+}
+[2026-11-14T23:12:15.380Z] [tenant=kpi kpi.eu.auth0.com] Вхід #8/10 → 200 (password-realm)
+{
+  "roles_requested": [],
+  "roles_now": "недоступно (HTTP 403)",
+  "access_token": "eyJhbGciOi...8jKGqA",
+  "iat": "2026-11-14T23:12:15.000Z",
+  "exp": "2026-11-15T23:12:15.000Z"
+}
+[2026-11-14T23:17:16.167Z] [tenant=kpi kpi.eu.auth0.com] Вхід #9/10 → 200 (password-realm)
+{
+  "roles_requested": [
+    "admin"
+  ],
+  "roles_now": "недоступно (HTTP 403)",
+  "access_token": "eyJhbGciOi...yizWWQ",
+  "iat": "2026-11-14T23:17:16.000Z",
+  "exp": "2026-11-15T23:17:16.000Z"
+}
+[2026-11-14T23:22:16.967Z] [tenant=kpi kpi.eu.auth0.com] Вхід #10/10 → 200 (password-realm)
+{
+  "roles_requested": [
+    "viewer"
+  ],
+  "roles_now": "недоступно (HTTP 403)",
+  "access_token": "eyJhbGciOi...7W4TaA",
+  "iat": "2026-11-14T23:22:16.000Z",
+  "exp": "2026-11-15T23:22:16.000Z"
+}
+[2026-11-14T23:22:16.969Z] [tenant=kpi kpi.eu.auth0.com] Готово

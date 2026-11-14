@@ -1,0 +1,7 @@
+[2026-11-14T23:39:05.284Z] Адмін-токен Management API отримано 
+[2026-11-14T23:39:05.764Z] API {"identifier":"https://bpz-lab-api","signing_alg":"RS256","allow_offline_access":true}
+[2026-11-14T23:39:06.401Z] Застосунок {"name":"BPZ Lab App","client_id":"blXIJdzCZkUJCXgX5uRWJmstjef0CjnA","grant_types":["authorization_code","refresh_token","client_credentials","password"],"callbacks":["http://localhost:3000","http://localhost:3000/callback"]}
+[2026-11-14T23:39:06.933Z] Management API scopes ["read:users","create:users","update:users","read:roles","create:roles","update:roles","delete:roles","create:role_members","read:role_members","delete:role_members","read:users_app_metadata"]
+[2026-11-14T23:39:07.444Z] Connection увімкнено для застосунку "Username-Password-Authentication"
+[2026-11-14T23:39:07.709Z] Default Directory "Username-Password-Authentication"
+[2026-11-14T23:39:07.921Z] .env оновлено: AUTH0_CLIENT_ID, AUTH0_CLIENT_SECRET, AUTH0_AUDIENCE, AUTH0_MGMT_AUDIENCE 

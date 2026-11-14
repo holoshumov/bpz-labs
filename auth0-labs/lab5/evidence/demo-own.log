@@ -1,0 +1,97 @@
+[2026-11-14T23:40:34.014Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] POST /api/login → JWE від сервера
+{
+  "token": "eyJhbGciOi...EC8Dqg",
+  "parts": 5,
+  "header": {
+    "alg": "RSA-OAEP-256",
+    "enc": "A256GCM",
+    "typ": "JWE",
+    "cty": "JSON"
+  }
+}
+[2026-11-14T23:40:34.017Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] Спроба прочитати payload JWE без ключа (base64url-декодування 4-ї частини = шифротекст)
+{
+  "ciphertext_as_text": "T\u0000bf_\u0007!�\u0001�Fk��)�tmn<�\b�\u001fS{[H���A�f\b!\u0015^Ps�5`�TK\u0018\u0018���f����z\u0002\r!",
+  "json_parse": "помилка: Unexpected token 'T', \"T\u0000bf_\u0007!�\u0001�\"... is not valid JSON"
+}
+[2026-11-14T23:40:34.126Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] Розшифрування чужим приватним ключем
+{
+  "error": "ERR_JWE_DECRYPTION_FAILED",
+  "message": "decryption operation failed"
+}
+[2026-11-14T23:40:34.487Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] GET / з валідним JWE → HTTP 200
+{
+  "username": "holoshumov.bpz.lab@example.com",
+  "email": "holoshumov.bpz.lab@example.com",
+  "sub": "auth0|6af8f0a21bebf360b205420f",
+  "token_expires_at": 1794699753,
+  "token_expires_in": 119,
+  "token_format": "JWE (RSA-O...56GCM)",
+  "verified_claims": {
+    "iss": "https://dev-b5ra33c6diywgvbd.us.auth0.com/",
+    "aud": [
+      "https://bpz-lab-api",
+      "https://dev-b5ra33c6diywgvbd.us.auth0.com/userinfo"
+    ],
+    "sub": "auth0|6af8f0a21bebf360b205420f",
+    "exp": 1794699753
+  },
+  "refreshed": null,
+  "logout": "http://localhost:3000/logout"
+}
+[2026-11-14T23:40:34.493Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] GET / з пошкодженим JWE → HTTP 401
+{
+  "error": "invalid_token",
+  "message": "decryption operation failed",
+  "code": "ERR_JWE_DE...FAILED"
+}
+[2026-11-14T23:40:35.165Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] GET / з оригінальним Auth0 JWS (RS256) → HTTP 200
+{
+  "username": "holoshumov.bpz.lab@example.com",
+  "email": "holoshumov.bpz.lab@example.com",
+  "sub": "auth0|6af8f0a21bebf360b205420f",
+  "token_expires_at": 1794699754,
+  "token_expires_in": 119,
+  "token_format": "JWS (RS256)",
+  "verified_claims": {
+    "iss": "https://dev-b5ra33c6diywgvbd.us.auth0.com/",
+    "aud": [
+      "https://bpz-lab-api",
+      "https://dev-b5ra33c6diywgvbd.us.auth0.com/userinfo"
+    ],
+    "sub": "auth0|6af8f0a21bebf360b205420f",
+    "exp": 1794699754
+  },
+  "refreshed": null,
+  "logout": "http://localhost:3000/logout"
+}
+[2026-11-14T23:40:35.171Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] GET / з підміненим payload (sub/scope), старий підпис → HTTP 401
+{
+  "error": "invalid_token",
+  "message": "signature verification failed",
+  "code": "ERR_JWS_SI...FAILED"
+}
+[2026-11-14T23:40:35.250Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] GET / з чужим токеном (підписаний іншим RSA-ключем) → HTTP 401
+{
+  "error": "invalid_token",
+  "message": "signature verification failed",
+  "code": "ERR_JWS_SI...FAILED"
+}
+[2026-11-14T23:40:35.251Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] GET / з alg=none → HTTP 401
+{
+  "error": "invalid_token",
+  "message": "\"alg\" (Algorithm) Header Parameter value not allowed",
+  "code": "ERR_JOSE_ALG_NOT_ALLOWED"
+}
+[2026-11-14T23:40:35.337Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] jwtVerify справжнього токена на момент exp+1 с → відхилено
+{
+  "code": "ERR_JWT_EXPIRED",
+  "message": "\"exp\" claim timestamp check failed",
+  "claim": "exp"
+}
+[2026-11-14T23:40:35.338Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] jwtVerify з чужою audience → відхилено
+{
+  "code": "ERR_JWT_CL...FAILED",
+  "message": "unexpected \"aud\" claim value",
+  "claim": "aud"
+}

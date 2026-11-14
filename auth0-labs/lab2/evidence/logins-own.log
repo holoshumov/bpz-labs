@@ -1,0 +1,13 @@
+[2026-11-14T23:37:28.549Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] Старт: 10 входів, інтервал 5 хв, user auth0|6af8f0a21bebf360b205420f
+[2026-11-14T23:37:30.166Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] Вхід #1/10 → 200 (password)
+{
+  "roles_requested": [
+    "viewer"
+  ],
+  "roles_now": [
+    "viewer"
+  ],
+  "access_token": "eyJhbGciOi...BaMxWQ",
+  "iat": "2026-11-14T23:37:30.000Z",
+  "exp": "2026-11-15T23:37:30.000Z"
+}

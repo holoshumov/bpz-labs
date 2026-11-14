@@ -1,0 +1,9 @@
+[2026-11-14T23:40:40.759Z] ЛР6 слухає http://localhost:3000 (tenant=own dev-b5ra33c6diywgvbd.us.auth0.com)
+[2026-11-14T23:40:42.646Z] GET /login → 302 https://dev-b5ra33c6diywgvbd.us.auth0.com/authorize?client_id=blXIJdzCZkUJCXgX5uRWJmstjef0CjnA&redirect_uri=http%3A%2F%2Flocalhost%3A3000&response_type=code&response_mode=query&scope=openid+profile+email+offline_access&audience=https%3A%2F%2Fbpz-lab-api&state=…&code_challenge=…&code_challenge_method=S256
+[2026-11-14T23:40:42.655Z] GET /login → 302 https://dev-b5ra33c6diywgvbd.us.auth0.com/authorize?client_id=blXIJdzCZkUJCXgX5uRWJmstjef0CjnA&redirect_uri=http%3A%2F%2Flocalhost%3A3000&response_type=code&response_mode=query&scope=openid+profile+email+offline_access&audience=https%3A%2F%2Fbpz-lab-api&state=…&code_challenge=…&code_challenge_method=S256
+[2026-11-14T23:40:42.988Z] Callback: state не збігається → 400 (state=forged)
+[2026-11-14T23:40:42.996Z] GET /logout → 302 https://dev-b5ra33c6diywgvbd.us.auth0.com/v2/logout?client_id=blXIJdzCZkUJCXgX5uRWJmstjef0CjnA&returnTo=http%3A%2F%2Flocalhost%3A3000
+[2026-11-14T23:40:53.009Z] GET /login → 302 https://dev-b5ra33c6diywgvbd.us.auth0.com/authorize?client_id=blXIJdzCZkUJCXgX5uRWJmstjef0CjnA&redirect_uri=http%3A%2F%2Flocalhost%3A3000&response_type=code&response_mode=query&scope=openid+profile+email+offline_access&audience=https%3A%2F%2Fbpz-lab-api&state=…&code_challenge=…&code_challenge_method=S256
+[2026-11-14T23:41:06.920Z] POST /oauth/token grant_type=authorization_code code=9FbtH4vy6W...ebuexc → 200
+[2026-11-14T23:41:06.921Z] Отримано токени: access eyJhbGciOi...UF5DgA, refresh так, id_token так
+[2026-11-14T23:41:26.240Z] GET /logout → 302 https://dev-b5ra33c6diywgvbd.us.auth0.com/v2/logout?client_id=blXIJdzCZkUJCXgX5uRWJmstjef0CjnA&returnTo=http%3A%2F%2Flocalhost%3A3000
