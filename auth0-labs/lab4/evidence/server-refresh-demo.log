@@ -1,0 +1,4 @@
+[2026-11-14T22:39:03.704Z] ЛР4 слухає http://localhost:3000 (tenant=kpi kpi.eu.auth0.com, refresh threshold 86400s)
+[2026-11-14T22:39:06.198Z] Login holoshumov.bpz.lab@example.com → OK (password-realm), token eyJhbGciOi...-qqjgQ
+[2026-11-14T22:39:08.324Z] Токен спливає через 86398 с (< 86400) → refresh_token grant
+[2026-11-14T22:39:08.541Z] Токен оновлено: eyJhbGciOi...-qqjgQ → eyJhbGciOi...xY8REA, новий exp 2026-11-15T22:39:08.000Z

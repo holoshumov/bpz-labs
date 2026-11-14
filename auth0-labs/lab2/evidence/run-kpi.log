@@ -1,0 +1,79 @@
+[2026-11-14T22:37:02.273Z] [tenant=kpi kpi.eu.auth0.com] POST /oauth/token grant_type=client_credentials → 200
+{
+  "access_token": "eyJhbGciOi...EE0a6g",
+  "scope": "read:users create:users",
+  "expires_in": 86400,
+  "token_type": "Bearer"
+}
+[2026-11-14T22:37:02.276Z] [tenant=kpi kpi.eu.auth0.com] Розкодований access_token (header + payload)
+{
+  "header": {
+    "alg": "RS256",
+    "typ": "JWT",
+    "kid": "5Be9AdXk0DZR8fGWYb7dV"
+  },
+  "payload": {
+    "iss": "https://kpi.eu.auth0.com/",
+    "sub": "JIvCO5c2IBHlAe2patn6l6q5H35qxti0@clients",
+    "aud": "https://kpi.eu.auth0.com/api/v2/",
+    "iat": 1794695822,
+    "exp": 1794782222,
+    "scope": "read:users create:users",
+    "gty": "client-credentials",
+    "azp": "JIvCO5c2IBHlAe2patn6l6q5H35qxti0"
+  },
+  "exp_human": "2026-11-15T22:37:02.000Z",
+  "iat_human": "2026-11-14T22:37:02.000Z"
+}
+[2026-11-14T22:37:02.595Z] [tenant=kpi kpi.eu.auth0.com] POST /api/v2/users (демо-користувач) → 201
+{
+  "request": {
+    "email": "lab2-demo-1794695822276@example.com",
+    "password": "********",
+    "connection": "Username-Password-Authentication"
+  },
+  "response": {
+    "user_id": "auth0|6af8e28e0d1033d3634c347a",
+    "created_at": "2026-11-14T22:37:02.561Z",
+    "email": "lab2-demo-1794695822276@example.com",
+    "email_verified": false,
+    "identities": [
+      {
+        "connection": "Username-Password-Authentication",
+        "user_id": "6af8e28e0d1033d3634c347a",
+        "provider": "auth0",
+        "isSocial": false
+      }
+    ],
+    "name": "lab2-demo-1794695822276@example.com",
+    "nickname": "lab2-demo-1794695822276",
+    "picture": "https://s.gravatar.com/avatar/4ac7a09a442925ee77f3e6d041340260?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fla.png",
+    "updated_at": "2026-11-14T22:37:02.562Z"
+  }
+}
+[2026-11-14T22:37:02.854Z] [tenant=kpi kpi.eu.auth0.com] POST /api/v2/users → 409
+{
+  "request": {
+    "email": "holoshumov.bpz.lab@example.com",
+    "password": "********",
+    "connection": "Username-Password-Authentication"
+  },
+  "response": {
+    "statusCode": 409,
+    "error": "Conflict",
+    "message": "The user already exists.",
+    "errorCode": "auth0_idp_error"
+  }
+}
+[2026-11-14T22:37:02.969Z] [tenant=kpi kpi.eu.auth0.com] Користувач уже існує, беремо наявного
+{
+  "user_id": "auth0|6af8e2344759a10989d5e321"
+}
+[2026-11-14T22:37:03.062Z] [tenant=kpi kpi.eu.auth0.com] GET /api/v2/roles → 403
+{
+  "statusCode": 403,
+  "error": "Forbidden",
+  "message": "Insufficient scope, expected any of: read:roles",
+  "errorCode": "insufficient_scope"
+}
+[2026-11-14T22:37:03.063Z] [tenant=kpi kpi.eu.auth0.com] Ролі недоступні на цьому tenant (немає scope read:roles/create:roles) — виконайте з TENANT=own

@@ -1,0 +1,19 @@
+{
+  "name": "bpz-auth0-labs",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "lab2": "node lab2/run.js",
+    "lab2:logins": "node lab2/logins.js",
+    "lab3": "node lab3/run.js",
+    "lab4": "node lab4/index.js",
+    "lab5": "node lab5/index.js",
+    "lab6": "node lab6/index.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "jose": "^5.9.6"
+  }
+}

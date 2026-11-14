@@ -1,0 +1,15 @@
+### GET /login
+HTTP/1.1 302 Found
+Set-Cookie: oauth_state=…; HttpOnly; SameSite=Lax; Path=/; Max-Age=600
+Location: https://kpi.eu.auth0.com/authorize?client_id=JIvCO5c2IBHlAe2patn6l6q5H35qxti0&redirect_uri=http%3A%2F%2Flocalhost%3A3000&response_type=code&response_mode=query&scope=openid+profile+email+offline_access&audience=https%3A%2F%2Fkpi.eu.auth0.com%2Fapi%2Fv2%2F&state=…&code_challenge=…&code_challenge_method=S256
+### Auth0 /authorize → 
+302 https://kpi.eu.auth0.com/u/login?state=hKFo2SAxRjExVHRsQXNjRXdCRFhsVldzTDB5V
+### callback з чужим state
+Invalid state. <a href="/">Назад</a> [400]
+### callback з error
+Auth0 error: access_denied — User cancelled. <a href="/">Назад</a> [400]
+### GET /logout
+HTTP/1.1 302 Found
+Location: https://kpi.eu.auth0.com/v2/logout?client_id=JIvCO5c2IBHlAe2patn6l6q5H35qxti0&returnTo=http%3A%2F%2Flocalhost%3A3000
+### Auth0 /v2/logout
+400 

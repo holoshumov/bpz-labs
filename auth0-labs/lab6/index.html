@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login (Auth0 SSO)</title>
+    <script src="https://unpkg.com/axios@1.7.9/dist/axios.min.js"></script>
+</head>
+<body>
+<main id="main-holder">
+    <a href="/logout" id="logout">Logout</a>
+
+    <h1 id="login-header">Login</h1>
+
+    <a id="sso-login" href="/login">Login через Auth0 (SSO)</a>
+
+    <div id="user-info"></div>
+</main>
+</body>
+
+<style>
+    html { height: 100%; }
+    body { height: 100%; margin: 0; font-family: Arial, Helvetica, sans-serif; display: grid;
+           justify-items: center; align-items: center; background-color: #3a3a3a; }
+    #logout { opacity: 0; }
+    #main-holder { width: 50%; min-height: 70%; display: grid; justify-items: center; align-items: center;
+                   background-color: white; border-radius: 7px; box-shadow: 0px 0px 5px 2px black; padding: 16px; }
+    #login-error-msg-holder { width: 100%; display: grid; justify-items: center; align-items: center; }
+    #login-error-msg { text-align: center; margin: 0; padding: 5px; font-size: 12px; font-weight: bold;
+                       color: #8a0000; border: 1px solid #8a0000; background-color: #e58f8f; opacity: 0; }
+    #error-msg-second-line { display: block; }
+    #login-form, #signup-form { align-self: flex-start; display: grid; justify-items: center; align-items: center; gap: 4px; }
+    .login-form-field::placeholder { color: #3a3a3a; }
+    .login-form-field { border: none; border-bottom: 1px solid #3a3a3a; margin-bottom: 10px; border-radius: 3px;
+                        outline: none; padding: 0px 0px 5px 5px; }
+    #login-form-submit, #signup-form-submit { width: 100%; padding: 7px; border: none; border-radius: 5px; color: white;
+                         font-weight: bold; background-color: #3a3a3a; cursor: pointer; outline: none; }
+    #sso-login { padding: 10px 24px; border-radius: 5px; color: white; font-weight: bold; background: #3a3a3a; text-decoration: none; }
+    #user-info { font-size: 14px; line-height: 1.6; }
+</style>
+
+<script>
+    const logoutLink = document.getElementById("logout");
+    const userInfo = document.getElementById("user-info");
+    const getSession = () => { try { return JSON.parse(sessionStorage.getItem('session')) || {}; } catch (e) { return {}; } };
+    const saveSession = (s) => sessionStorage.setItem('session', JSON.stringify(s));
+
+    function loadUser() {
+        const session = getSession();
+        if (!session.token) return;
+        axios.get('/', {
+            headers: { Authorization: `Bearer ${session.token}`, 'X-Refresh-Token': session.refresh_token || '' }
+        }).then(({ data }) => {
+            if (data.refreshed) saveSession({ ...session, ...data.refreshed });
+            document.getElementById("sso-login")?.remove();
+            document.getElementById("login-header")?.remove();
+            const exp = new Date(data.token_expires_at * 1000);
+            userInfo.innerHTML = (data.picture ? `<img src="${data.picture}" width="64" style="border-radius:50%"><br>` : '') +
+                `Hello <b>${data.username}</b><br>email: ${data.email}<br>sub: ${data.sub}<br>` +
+                `Токен дійсний до: <b>${exp.toLocaleString()}</b> (залишилось ${data.token_expires_in} с)`;
+            logoutLink.style.opacity = 1;
+        }).catch(() => { sessionStorage.removeItem('session'); location.reload(); });
+    }
+    loadUser();
+    setInterval(loadUser, 15000);
+
+    // Logout: очищаємо локальну сесію і йдемо на /logout → Auth0 /v2/logout → returnTo
+    logoutLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        sessionStorage.removeItem('session');
+        location.href = '/logout';
+    });
+</script>
+</html>

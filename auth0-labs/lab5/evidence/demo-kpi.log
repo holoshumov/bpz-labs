@@ -1,0 +1,97 @@
+[2026-11-14T22:40:21.367Z] [tenant=kpi kpi.eu.auth0.com] POST /api/login → JWE від сервера
+{
+  "token": "eyJhbGciOi...DUjWmg",
+  "parts": 5,
+  "header": {
+    "alg": "RSA-OAEP-256",
+    "enc": "A256GCM",
+    "typ": "JWE",
+    "cty": "JSON"
+  }
+}
+[2026-11-14T22:40:21.370Z] [tenant=kpi kpi.eu.auth0.com] Спроба прочитати payload JWE без ключа (base64url-декодування 4-ї частини = шифротекст)
+{
+  "ciphertext_as_text": "]\u0019\n�\b\u0015�ܠ��H��)�q�G��\u0016ƣ\u0018�������4U>�1)�I\u0018�\u0001����9/��\u0001]\nm;R�r��",
+  "json_parse": "помилка: Unexpected token ']', \"]\u0019\n�\b\u0015�ܠ��\"... is not valid JSON"
+}
+[2026-11-14T22:40:21.420Z] [tenant=kpi kpi.eu.auth0.com] Розшифрування чужим приватним ключем
+{
+  "error": "ERR_JWE_DECRYPTION_FAILED",
+  "message": "decryption operation failed"
+}
+[2026-11-14T22:40:21.554Z] [tenant=kpi kpi.eu.auth0.com] GET / з валідним JWE → HTTP 200
+{
+  "username": "holoshumov.bpz.lab@example.com",
+  "email": "holoshumov.bpz.lab@example.com",
+  "sub": "auth0|6af8e2344759a10989d5e321",
+  "token_expires_at": 1794782421,
+  "token_expires_in": 86400,
+  "token_format": "JWE (RSA-O...56GCM)",
+  "verified_claims": {
+    "iss": "https://kpi.eu.auth0.com/",
+    "aud": [
+      "https://kpi.eu.auth0.com/api/v2/",
+      "https://kpi.eu.auth0.com/userinfo"
+    ],
+    "sub": "auth0|6af8e2344759a10989d5e321",
+    "exp": 1794782421
+  },
+  "refreshed": null,
+  "logout": "http://localhost:3000/logout"
+}
+[2026-11-14T22:40:21.557Z] [tenant=kpi kpi.eu.auth0.com] GET / з пошкодженим JWE → HTTP 401
+{
+  "error": "invalid_token",
+  "message": "decryption operation failed",
+  "code": "ERR_JWE_DE...FAILED"
+}
+[2026-11-14T22:40:22.480Z] [tenant=kpi kpi.eu.auth0.com] GET / з оригінальним Auth0 JWS (RS256) → HTTP 200
+{
+  "username": "holoshumov.bpz.lab@example.com",
+  "email": "holoshumov.bpz.lab@example.com",
+  "sub": "auth0|6af8e2344759a10989d5e321",
+  "token_expires_at": 1794782422,
+  "token_expires_in": 86400,
+  "token_format": "JWS (RS256)",
+  "verified_claims": {
+    "iss": "https://kpi.eu.auth0.com/",
+    "aud": [
+      "https://kpi.eu.auth0.com/api/v2/",
+      "https://kpi.eu.auth0.com/userinfo"
+    ],
+    "sub": "auth0|6af8e2344759a10989d5e321",
+    "exp": 1794782422
+  },
+  "refreshed": null,
+  "logout": "http://localhost:3000/logout"
+}
+[2026-11-14T22:40:22.486Z] [tenant=kpi kpi.eu.auth0.com] GET / з підміненим payload (sub/scope), старий підпис → HTTP 401
+{
+  "error": "invalid_token",
+  "message": "signature verification failed",
+  "code": "ERR_JWS_SI...FAILED"
+}
+[2026-11-14T22:40:22.526Z] [tenant=kpi kpi.eu.auth0.com] GET / з чужим токеном (підписаний іншим RSA-ключем) → HTTP 401
+{
+  "error": "invalid_token",
+  "message": "signature verification failed",
+  "code": "ERR_JWS_SI...FAILED"
+}
+[2026-11-14T22:40:22.528Z] [tenant=kpi kpi.eu.auth0.com] GET / з alg=none → HTTP 401
+{
+  "error": "invalid_token",
+  "message": "\"alg\" (Algorithm) Header Parameter value not allowed",
+  "code": "ERR_JOSE_ALG_NOT_ALLOWED"
+}
+[2026-11-14T22:40:22.692Z] [tenant=kpi kpi.eu.auth0.com] jwtVerify справжнього токена на момент exp+1 с → відхилено
+{
+  "code": "ERR_JWT_EXPIRED",
+  "message": "\"exp\" claim timestamp check failed",
+  "claim": "exp"
+}
+[2026-11-14T22:40:22.693Z] [tenant=kpi kpi.eu.auth0.com] jwtVerify з чужою audience → відхилено
+{
+  "code": "ERR_JWT_CL...FAILED",
+  "message": "unexpected \"aud\" claim value",
+  "claim": "aud"
+}

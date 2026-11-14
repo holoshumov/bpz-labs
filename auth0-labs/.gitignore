@@ -1,0 +1,5 @@
+.env
+node_modules/
+evidence/raw/
+.DS_Store
+keys/

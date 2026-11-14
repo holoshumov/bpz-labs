@@ -1,0 +1,8 @@
+[2026-11-14T22:38:51.934Z] ЛР4 слухає http://localhost:3000 (tenant=kpi kpi.eu.auth0.com, refresh threshold 60s)
+[2026-11-14T22:38:54.556Z] Login holoshumov.bpz.lab@example.com → 401: Wrong email or password.
+[2026-11-14T22:38:55.022Z] Login holoshumov.bpz.lab@example.com → OK (password-realm), token eyJhbGciOi...O-B-uA
+[2026-11-14T22:38:55.387Z] GET / → 401, userinfo: 401 Unauthorized
+[2026-11-14T22:38:55.549Z] Signup lab4-signup-1794695935@example.com: Management-токен отримано новий, діє до 2026-11-15T22:38:55.000Z
+[2026-11-14T22:38:55.875Z] POST /api/v2/users lab4-signup-1794695935@example.com → 201
+[2026-11-14T22:38:55.889Z] Signup lab4-signup2-1794695935@example.com: Management-токен з кешу, діє до 2026-11-15T22:38:55.000Z
+[2026-11-14T22:38:56.238Z] POST /api/v2/users lab4-signup2-1794695935@example.com → 201

@@ -1,0 +1,12 @@
+# Секрети і локальне
+.env
+**/.env
+node_modules/
+**/evidence/raw/
+**/keys/
+*.log.tmp
+.DS_Store
+# Містить client_secret викладача — не публікувати
+TASKS_ALL.md
+# lab1 поки що окремий git-репозиторій (див. README) — додається окремим кроком
+lab1/

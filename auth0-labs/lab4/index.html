@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login (Auth0)</title>
+    <script src="https://unpkg.com/axios@1.7.9/dist/axios.min.js"></script>
+</head>
+<body>
+<main id="main-holder">
+    <a href="/logout" id="logout">Logout</a>
+
+    <h1 id="login-header">Login</h1>
+
+    <div id="login-error-msg-holder">
+        <p id="login-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
+    </div>
+
+    <form id="login-form" action="/api/login" method="post">
+        <input type="text" name="login" id="username-field" class="login-form-field" placeholder="Email">
+        <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password">
+        <input type="submit" value="Login" id="login-form-submit">
+    </form>
+
+    <form id="signup-form">
+        <b>Реєстрація</b>
+        <input type="email" name="email" class="login-form-field" placeholder="Email">
+        <input type="password" name="password" class="login-form-field" placeholder="Password (8+, A-z, 0-9, !)">
+        <input type="submit" value="Sign up" id="signup-form-submit">
+        <p id="signup-msg"></p>
+    </form>
+
+    <div id="user-info"></div>
+</main>
+</body>
+
+<style>
+    html { height: 100%; }
+    body { height: 100%; margin: 0; font-family: Arial, Helvetica, sans-serif; display: grid;
+           justify-items: center; align-items: center; background-color: #3a3a3a; }
+    #logout { opacity: 0; }
+    #main-holder { width: 50%; min-height: 70%; display: grid; justify-items: center; align-items: center;
+                   background-color: white; border-radius: 7px; box-shadow: 0px 0px 5px 2px black; padding: 16px; }
+    #login-error-msg-holder { width: 100%; display: grid; justify-items: center; align-items: center; }
+    #login-error-msg { text-align: center; margin: 0; padding: 5px; font-size: 12px; font-weight: bold;
+                       color: #8a0000; border: 1px solid #8a0000; background-color: #e58f8f; opacity: 0; }
+    #error-msg-second-line { display: block; }
+    #login-form, #signup-form { align-self: flex-start; display: grid; justify-items: center; align-items: center; gap: 4px; }
+    .login-form-field::placeholder { color: #3a3a3a; }
+    .login-form-field { border: none; border-bottom: 1px solid #3a3a3a; margin-bottom: 10px; border-radius: 3px;
+                        outline: none; padding: 0px 0px 5px 5px; }
+    #login-form-submit, #signup-form-submit { width: 100%; padding: 7px; border: none; border-radius: 5px; color: white;
+                         font-weight: bold; background-color: #3a3a3a; cursor: pointer; outline: none; }
+    #signup-msg { font-size: 12px; margin: 0; }
+    #user-info { font-size: 14px; line-height: 1.6; }
+</style>
+
+<script>
+    const loginForm = document.getElementById("login-form");
+    const signupForm = document.getElementById("signup-form");
+    const loginButton = document.getElementById("login-form-submit");
+    const loginErrorMsg = document.getElementById("login-error-msg");
+    const logoutLink = document.getElementById("logout");
+    const userInfo = document.getElementById("user-info");
+
+    const getSession = () => { try { return JSON.parse(sessionStorage.getItem('session')) || {}; } catch (e) { return {}; } };
+    const saveSession = (s) => sessionStorage.setItem('session', JSON.stringify(s));
+
+    // GET / з Bearer-токеном. Сервер сам оновить токен, якщо до exp < N секунд.
+    function loadUser() {
+        const session = getSession();
+        if (!session.token) return;
+        axios.get('/', {
+            headers: { Authorization: `Bearer ${session.token}`, 'X-Refresh-Token': session.refresh_token || '' }
+        }).then(({ data }) => {
+            if (data.refreshed) {
+                saveSession({ ...session, ...data.refreshed });
+                console.log('Токен оновлено сервером', data.refreshed.expires_at);
+            }
+            loginForm.remove(); signupForm.remove(); loginErrorMsg.remove();
+            document.getElementById("login-header")?.remove();
+            const exp = new Date(data.token_expires_at * 1000);
+            userInfo.innerHTML = `Hello <b>${data.username}</b><br>email: ${data.email}<br>sub: ${data.sub}<br>` +
+                `Токен дійсний до: <b>${exp.toLocaleString()}</b> (залишилось <span id="left">${data.token_expires_in}</span> с)` +
+                (data.refreshed ? '<br><i>Токен щойно оновлено (refresh_token)</i>' : '');
+            logoutLink.style.opacity = 1;
+        }).catch(() => {
+            sessionStorage.removeItem('session');
+            location.reload();
+        });
+    }
+
+    loadUser();
+    setInterval(loadUser, 15000); // періодична перевірка життя токена
+
+    logoutLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        sessionStorage.removeItem('session');
+        location.reload();
+    });
+
+    loginButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        axios.post('/api/login', { login: loginForm.login.value, password: loginForm.password.value })
+            .then(({ data }) => { saveSession(data); location.reload(); })
+            .catch((err) => {
+                loginErrorMsg.textContent = err.response?.data?.message || 'Invalid username and/or password';
+                loginErrorMsg.style.opacity = 1;
+            });
+    });
+
+    signupForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const msg = document.getElementById("signup-msg");
+        axios.post('/api/signup', { email: signupForm.email.value, password: signupForm.password.value })
+            .then(({ data }) => { msg.style.color = 'green'; msg.textContent = `Створено ${data.email} (${data.user_id}). Тепер увійдіть.`; })
+            .catch((err) => { msg.style.color = '#8a0000'; msg.textContent = err.response?.data?.message || 'Помилка реєстрації'; });
+    });
+</script>
+</html>

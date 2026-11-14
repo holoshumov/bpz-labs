@@ -1,0 +1,23 @@
+### GET / без токена
+200 text/html; charset=UTF-8
+### POST /api/login невірний пароль
+{"error":"invalid_grant","message":"Wrong email or password."}
+401
+### POST /api/login OK
+{
+  token: 'eyJhbGciOi...',
+  refresh_token: '_PksyV...',
+  expires_in: 86400,
+  expires_at: 1794782334
+}
+### GET / з Bearer
+{"username":"holoshumov.bpz.lab@example.com","email":"holoshumov.bpz.lab@example.com","sub":"auth0|6af8e2344759a10989d5e321","token_expires_at":1794782334,"token_expires_in":86399,"refreshed":null,"logout":"http://localhost:3000/logout"}
+200
+### GET / з підробленим токеном
+401
+### POST /api/signup
+{"user_id":"auth0|6af8e2ffcd1a20dd230e6eb7","email":"lab4-signup-1794695935@example.com"}
+201
+### POST /api/signup повторно (кеш токена)
+{"user_id":"auth0|6af8e3006278bf146b7dcaac","email":"lab4-signup2-1794695935@example.com"}
+201

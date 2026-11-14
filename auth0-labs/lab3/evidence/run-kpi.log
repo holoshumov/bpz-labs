@@ -1,0 +1,69 @@
+[2026-11-14T22:37:23.579Z] [tenant=kpi kpi.eu.auth0.com] POST /oauth/token grant_type=password-realm audience=https://kpi.eu.auth0.com/api/v2/ → 200
+{
+  "access_token": "eyJhbGciOi...8U3RlQ",
+  "refresh_token": "nyUMPytfsx...6D9O3d",
+  "id_token": "eyJhbGciOi...BlBUFw",
+  "scope": "openid profile email read:current_user update:current_user_metadata delete:current_user_metadata create:current_user_metadata create:current_user_device_credentials delete:current_user_device_credentials update:current_user_identities offline_access",
+  "expires_in": 86400,
+  "token_type": "Bearer"
+}
+[2026-11-14T22:37:23.580Z] [tenant=kpi kpi.eu.auth0.com] access_token payload
+{
+  "iss": "https://kpi.eu.auth0.com/",
+  "sub": "auth0|6af8e2344759a10989d5e321",
+  "aud": [
+    "https://kpi.eu.auth0.com/api/v2/",
+    "https://kpi.eu.auth0.com/userinfo"
+  ],
+  "iat": 1794695843,
+  "exp": 1794782243,
+  "scope": "openid profile email read:current_user update:current_user_metadata delete:current_user_metadata create:current_user_metadata create:current_user_device_credentials delete:current_user_device_credentials update:current_user_identities offline_access",
+  "gty": "password",
+  "azp": "JIvCO5c2IBHlAe2patn6l6q5H35qxti0"
+}
+[2026-11-14T22:37:23.581Z] [tenant=kpi kpi.eu.auth0.com] id_token payload
+{
+  "nickname": "holoshumov.bpz.lab",
+  "name": "holoshumov.bpz.lab@example.com",
+  "picture": "https://s.gravatar.com/avatar/44ebb9a84740f0fdac64731cf1f11e91?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fho.png",
+  "updated_at": "2026-11-14T22:37:23.477Z",
+  "email": "holoshumov.bpz.lab@example.com",
+  "email_verified": false,
+  "iss": "https://kpi.eu.auth0.com/",
+  "aud": "JIvCO5c2IBHlAe2patn6l6q5H35qxti0",
+  "sub": "auth0|6af8e2344759a10989d5e321",
+  "iat": 1794695843,
+  "exp": 1794731843
+}
+[2026-11-14T22:37:26.796Z] [tenant=kpi kpi.eu.auth0.com] POST /oauth/token grant_type=refresh_token → 200
+{
+  "access_token": "eyJhbGciOi...eh5Haw",
+  "id_token": "eyJhbGciOi...TtIopw",
+  "scope": "openid profile email read:current_user update:current_user_metadata delete:current_user_metadata create:current_user_metadata create:current_user_device_credentials delete:current_user_device_credentials update:current_user_identities offline_access",
+  "expires_in": 86400,
+  "token_type": "Bearer"
+}
+[2026-11-14T22:37:26.798Z] [tenant=kpi kpi.eu.auth0.com] Порівняння iat/exp: старий vs новий access_token
+{
+  "old": {
+    "iat": 1794695843,
+    "exp": 1794782243,
+    "iat_human": "2026-11-14T22:37:23.000Z",
+    "exp_human": "2026-11-15T22:37:23.000Z"
+  },
+  "new": {
+    "iat": 1794695846,
+    "exp": 1794782246,
+    "iat_human": "2026-11-14T22:37:26.000Z",
+    "exp_human": "2026-11-15T22:37:26.000Z"
+  },
+  "changed": true
+}
+[2026-11-14T22:37:27.224Z] [tenant=kpi kpi.eu.auth0.com] PATCH /api/v2/users/auth0|6af8e2344759a10989d5e321 {password} → 403
+{
+  "statusCode": 403,
+  "error": "Forbidden",
+  "message": "Insufficient scope, expected any of: update:users,update:users_app_metadata,update:current_user_metadata",
+  "errorCode": "insufficient_scope"
+}
+[2026-11-14T22:37:27.224Z] [tenant=kpi kpi.eu.auth0.com] Зміна пароля недоступна на цьому tenant (немає scope update:users) — виконайте з TENANT=own
