@@ -1,0 +1,46 @@
+
+==== 1. Без заголовка Authorization -> 401 + WWW-Authenticate ====
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    12  100    12    0     0  14492      0 --:--:-- --:--:-- --:--:-- 12000
+HTTP/1.1 401 Unauthorized
+X-Powered-By: Express
+WWW-Authenticate: Basic realm="Ukraine"
+Content-Type: text/html; charset=utf-8
+Content-Length: 12
+ETag: W/"c-dAuDFQrdjS3hezqxDTNgW7AOlYk"
+Date: Sat, 14 Nov 2026 22:31:46 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+Unauthorized
+==== 2. Невірний пароль -> 401 ====
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    12  100    12    0     0  15364      0 --:--:-- --:--:-- --:--:-- 12000
+HTTP/1.1 401 Unauthorized
+X-Powered-By: Express
+WWW-Authenticate: Basic realm="Ukraine"
+Content-Type: text/html; charset=utf-8
+Content-Length: 12
+ETag: W/"c-dAuDFQrdjS3hezqxDTNgW7AOlYk"
+Date: Sat, 14 Nov 2026 22:31:46 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+Unauthorized
+==== 3. Вірні дані DateArt:2408 (Basic base64) -> 200 ====
+Authorization: Basic RGF0ZUFydDoyNDA4
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    13  100    13    0     0  16795      0 --:--:-- --:--:-- --:--:-- 13000
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: text/html; charset=utf-8
+Content-Length: 13
+ETag: W/"d-VYhmfqBgj9e/Rmxgx1MiaNSBKys"
+Date: Sat, 14 Nov 2026 22:31:46 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+Hello DateArt

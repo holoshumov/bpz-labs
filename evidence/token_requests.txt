@@ -1,0 +1,18 @@
+
+==== 1. POST /api/login -> token (uuid сесії) ====
+{"token":"bf416638-eea6-42f1-a29f-3d70237004bf"}
+
+==== 2. GET / з Authorization: bf416638-eea6-42f1-a29f-3d70237004bf ====
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    63  100    63    0     0  71509      0 --:--:-- --:--:-- --:--:-- 63000
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 63
+ETag: W/"3f-Yr2meDawx0LxP6/eyMUXTcZpGxQ"
+Date: Sat, 14 Nov 2026 22:31:50 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"username":"Username","logout":"http://localhost:3000/logout"}

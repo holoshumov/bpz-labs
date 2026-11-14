@@ -1,0 +1,59 @@
+
+==== 1. GET / -> сервер ставить cookie session ====
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100  3965  100  3965    0     0  2670k      0 --:--:-- --:--:-- --:--:-- 3872k
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Set-Cookie: session=4082cc8f-2957-466b-87e6-536c5dfc8604; HttpOnly
+Accept-Ranges: bytes
+Cache-Control: public, max-age=0
+Last-Modified: Sat, 14 Nov 2026 22:27:23 GMT
+ETag: W/"f7d-1a1dc2c25b3"
+Content-Type: text/html; charset=UTF-8
+Content-Length: 3965
+Date: Sat, 14 Nov 2026 22:31:48 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+==== 2. POST /api/login з cookie ====
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    59  100    20  100    39   2803   5467 --:--:-- --:--:-- --:--:--  8428
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 20
+ETag: W/"14-0fqzPGGcLZFMZlE3m2VyMUMvVI8"
+Date: Sat, 14 Nov 2026 22:31:48 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"username":"Login"}
+==== 3. GET / з тією ж cookie -> дані користувача ====
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    63  100    63    0     0  67235      0 --:--:-- --:--:-- --:--:-- 63000
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 63
+ETag: W/"3f-Yr2meDawx0LxP6/eyMUXTcZpGxQ"
+Date: Sat, 14 Nov 2026 22:31:48 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"username":"Username","logout":"http://localhost:3000/logout"}
+==== 4. Невірний пароль -> 401 ====
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    34    0     0  100    34      0  32692 --:--:-- --:--:-- --:--:-- 34000
+HTTP/1.1 401 Unauthorized
+X-Powered-By: Express
+Set-Cookie: session=8bd65cf7-8c35-4e45-a16d-c8cb5f3b23b3; HttpOnly
+Date: Sat, 14 Nov 2026 22:31:48 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Content-Length: 0
+
+

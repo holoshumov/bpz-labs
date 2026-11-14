@@ -1,0 +1,19 @@
+{
+  "name": "bpz-lab1-auth-examples",
+  "version": "1.0.0",
+  "private": true,
+  "description": "БПЗ ЛР1 — basic / forms / token auth + JWT (Голошумов В. М., ІМ-31)",
+  "scripts": {
+    "basic": "node basic_auth/index.js",
+    "forms": "cd forms_auth && node index.js",
+    "token": "cd token_auth && node index.js",
+    "jwt": "cd token_auth_jwt && node index.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "cookie-parser": "^1.4.7",
+    "express": "^4.21.2",
+    "on-finished": "^2.4.1",
+    "uuid": "^9.0.1"
+  }
+}
