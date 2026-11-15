@@ -1,0 +1,41 @@
+
+=== neg1-keyswap ===
+  код виходу клієнта: 1 (очікувано 1)
+  [11:01:53.371] CLIENT    ✘ рукостискання НЕ завершено: отримано alert: finished клієнта не збігається з transcript hash сервера — повідомлення рукостискання змінено (MITM?) або verify_data невірний
+  [11:01:53.371] SERVER#1  ✘ рукостискання НЕ завершено: finished клієнта не збігається з transcript hash сервера — повідомлення рукостискання змінено (MITM?) або verify_data невірний
+
+=== neg1b-keyswap-cert ===
+  код виходу клієнта: 1 (очікувано 1)
+  [11:01:53.978] CLIENT    ✘ рукостискання НЕ завершено: public_key із server_hello НЕ збігається з ключем у сертифікаті — можлива підміна (MITM)
+  [11:01:53.978] SERVER#1  ✘ рукостискання НЕ завершено: отримано alert: public_key із server_hello НЕ збігається з ключем у сертифікаті — можлива підміна (MITM)
+
+=== neg2-tamper ===
+  код виходу клієнта: 1 (очікувано 1)
+  [11:01:54.632] CLIENT    ✘ отримано alert: AES-GCM відхилив повідомлення seq=1: Unsupported state or unable to authenticate data
+  [11:01:54.632] SERVER#1  ✘ AES-GCM відхилив повідомлення seq=1: Unsupported state or unable to authenticate data
+
+=== neg3-replay ===
+  код виходу клієнта: 1 (очікувано 1)
+  [11:01:55.284] CLIENT    ✘ отримано alert: seq=1, очікувався seq=2 — повтор (replay) або перестановка повідомлення, відхилено
+  [11:01:55.283] SERVER#1  ✘ seq=1, очікувався seq=2 — повтор (replay) або перестановка повідомлення, відхилено
+
+=== neg4-bad-finished ===
+  код виходу клієнта: 1 (очікувано 1)
+  [11:01:55.868] CLIENT    ✘ рукостискання НЕ завершено: отримано alert: finished клієнта не збігається з transcript hash сервера — повідомлення рукостискання змінено (MITM?) або verify_data невірний
+  [11:01:55.868] SERVER#1  ✘ рукостискання НЕ завершено: finished клієнта не збігається з transcript hash сервера — повідомлення рукостискання змінено (MITM?) або verify_data невірний
+
+=== Готово: логи в evidence/neg*.log ===
+evidence/neg1-keyswap-client.log
+evidence/neg1-keyswap-mitm.log
+evidence/neg1-keyswap-server.log
+evidence/neg1b-keyswap-cert-client.log
+evidence/neg1b-keyswap-cert-mitm.log
+evidence/neg1b-keyswap-cert-server.log
+evidence/neg2-tamper-client.log
+evidence/neg2-tamper-mitm.log
+evidence/neg2-tamper-server.log
+evidence/neg3-replay-client.log
+evidence/neg3-replay-mitm.log
+evidence/neg3-replay-server.log
+evidence/neg4-bad-finished-client.log
+evidence/neg4-bad-finished-server.log

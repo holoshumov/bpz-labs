@@ -10,7 +10,8 @@
 | ЛР4 | token_auth через Auth0, реєстрація, автооновлення токена | [auth0-labs/lab4/](auth0-labs/lab4/) |
 | ЛР5 | Перевірка підпису JWT (RS256, JWKS), шифрування JWE | [auth0-labs/lab5/](auth0-labs/lab5/) |
 | ЛР6 | Вхід через сторінку SSO: authorization code + state + PKCE | [auth0-labs/lab6/](auth0-labs/lab6/) |
+| РГР | Імітація TLS/SSL-рукостискання (RSA-OAEP, HKDF, AES-256-GCM), захищений чат і передача файлу, MITM/replay | [rgr/](rgr/) |
 
-Запуск: див. `lab1/README.md` і `auth0-labs/README.md`. У кожній ЛР є `NOTES.md` (теорія, що зроблено, питання до захисту), `SCREENSHOTS_CHECKLIST.md` і `evidence/` (логи запитів і відповідей; токени обрізано).
+Запуск: див. `lab1/README.md`, `auth0-labs/README.md` і `rgr/README.md`. У кожній ЛР є `NOTES.md` (теорія, що зроблено, питання до захисту), `SCREENSHOTS_CHECKLIST.md` і `evidence/` (логи запитів і відповідей; токени обрізано).
 
 Секрети (`.env`) у репозиторій не входять — див. `auth0-labs/.env.example`.

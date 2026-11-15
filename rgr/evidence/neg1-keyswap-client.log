@@ -1,0 +1,25 @@
+[11:01:53.330] CLIENT    з'єднано з 127.0.0.1:9443
+[11:01:53.332] CLIENT    ━━ КРОК 1/7 ━━ → client_hello
+                        version              BPZ-TLS/1.0
+                        client_random        929ecf75e815eed7…5ce1a2487f38d203 (32 Б)
+                        cipher_suites        BPZ_RSA_OAEP_SHA256_WITH_AES_256_GCM_HKDF_SHA256
+[11:01:53.367] CLIENT    ━━ КРОК 2/7 ━━ ← server_hello
+                        server_random        ea5590ff62f648a7…cc67affe66ac2080 (32 Б)
+                        cipher_suite         BPZ_RSA_OAEP_SHA256_WITH_AES_256_GCM_HKDF_SHA256
+                        public_key           RSA 2048 біт, SHA-256(SPKI) 20:DD:A2:8B:A5:66:0D:06…
+                        certificate          немає (базовий варіант: лише публічний ключ)
+[11:01:53.367] CLIENT    ━━ КРОК 3/7 ━━ пропущено (базовий варіант): перевірка сертифіката в центрі сертифікації не виконується
+[11:01:53.367] CLIENT    ━━ КРОК 4/7 ━━ → premaster (RSA-OAEP, SHA-256)
+                        premaster            21753b10ca82e813…f705f83774a3fb25 (48 Б)
+                        encrypted_premaster  2ffde3a657b0667f…e0b1013b0c5370d3 (256 Б)
+[11:01:53.368] CLIENT    ━━ КРОК 5/7 ━━ ключі сеансу (HKDF-SHA256)
+                        master               389072e7bbe944af…bb3db7d95207ae1e (48 Б)
+                        client_write_key     8b95253282d61424…2d83ab9aa280fe3c (32 Б)
+                        server_write_key     972481b7a67b49c6…0c2586ae2cbbfc5c (32 Б)
+                        client_iv            aab673882874ce5f53b3a679 (12 Б)
+                        server_iv            b673630faabd86584a3ba135 (12 Б)
+[11:01:53.368] CLIENT    ━━ КРОК 6/7 ━━ → finished «готовий» (зашифровано AES-256-GCM)
+                        transcript_hash      d3a6457545cf87fe…019f4969825abbda (32 Б)
+                        verify_data          4aa1599b4f08d4b8…3364b5bba5b97983 (32 Б)
+                        seq                  0
+[11:01:53.371] CLIENT    ✘ рукостискання НЕ завершено: отримано alert: finished клієнта не збігається з transcript hash сервера — повідомлення рукостискання змінено (MITM?) або verify_data невірний

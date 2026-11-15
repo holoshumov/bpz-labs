@@ -1,0 +1,32 @@
+[11:01:54.625] CLIENT    з'єднано з 127.0.0.1:9443
+[11:01:54.626] CLIENT    ━━ КРОК 1/7 ━━ → client_hello
+                        version              BPZ-TLS/1.0
+                        client_random        5c696959e394078f…90d6699e49ba7bc3 (32 Б)
+                        cipher_suites        BPZ_RSA_OAEP_SHA256_WITH_AES_256_GCM_HKDF_SHA256
+[11:01:54.629] CLIENT    ━━ КРОК 2/7 ━━ ← server_hello
+                        server_random        8ebbaf1b71a92f3d…95742e3d2fba53d6 (32 Б)
+                        cipher_suite         BPZ_RSA_OAEP_SHA256_WITH_AES_256_GCM_HKDF_SHA256
+                        public_key           RSA 2048 біт, SHA-256(SPKI) FD:26:B2:6E:6E:0F:E7:D1…
+                        certificate          немає (базовий варіант: лише публічний ключ)
+[11:01:54.629] CLIENT    ━━ КРОК 3/7 ━━ пропущено (базовий варіант): перевірка сертифіката в центрі сертифікації не виконується
+[11:01:54.629] CLIENT    ━━ КРОК 4/7 ━━ → premaster (RSA-OAEP, SHA-256)
+                        premaster            f871e91f67d7de90…f23adcea294366eb (48 Б)
+                        encrypted_premaster  1e27a7434e5d4baf…7b07604f4126b88a (256 Б)
+[11:01:54.629] CLIENT    ━━ КРОК 5/7 ━━ ключі сеансу (HKDF-SHA256)
+                        master               3e224bc923d33c46…c9e335e486b0a613 (48 Б)
+                        client_write_key     4511fb9984f70cff…c7de21fc90067915 (32 Б)
+                        server_write_key     6146e3dc978dd99c…21920fc97c3c05ff (32 Б)
+                        client_iv            5463a7835ed310bb3fd218ee (12 Б)
+                        server_iv            fea3200d84d8ec5808a17284 (12 Б)
+[11:01:54.630] CLIENT    ━━ КРОК 6/7 ━━ → finished «готовий» (зашифровано AES-256-GCM)
+                        transcript_hash      a868fb3a7f2264a9…841de39f165aa76d (32 Б)
+                        verify_data          31c80f30a61d47fc…6272c16e09f927c6 (32 Б)
+                        seq                  0
+[11:01:54.631] CLIENT    ━━ КРОК 6/7 ━━ ← finished сервера «готовий» перевірено
+                        verify_data          4a8e5181598ae9c1…07f89130e2372ebe (32 Б)
+[11:01:54.631] CLIENT    ━━ КРОК 7/7 ━━ рукостискання завершено — далі тільки AES-256-GCM на ключах сеансу
+[11:01:54.632] CLIENT    💬 я: Перше повідомлення: переказати 100 грн
+[11:01:54.632] CLIENT    → data seq=1 (AES-256-GCM: шифротекст 93 Б, tag 233fa2dc…)
+[11:01:54.632] CLIENT    💬 я: Друге повідомлення
+[11:01:54.632] CLIENT    → data seq=2 (AES-256-GCM: шифротекст 60 Б, tag 050938b6…)
+[11:01:54.632] CLIENT    ✘ отримано alert: AES-GCM відхилив повідомлення seq=1: Unsupported state or unable to authenticate data

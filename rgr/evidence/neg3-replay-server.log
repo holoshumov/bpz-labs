@@ -1,0 +1,36 @@
+[11:01:55.156] SERVER    згенеровано пару ключів RSA-2048 за 55 мс (базовий варіант, сертифіката немає)
+                        public_key           0D:C0:48:CB:1A:58:29:5F…
+[11:01:55.162] SERVER    слухаю 127.0.0.1:8443 (Ctrl+C — вихід)
+[11:01:55.277] SERVER#1  нове з'єднання від 127.0.0.1:62786
+[11:01:55.278] SERVER#1  ━━ КРОК 1/7 ━━ ← client_hello
+                        version              BPZ-TLS/1.0
+                        client_random        891039a018852702…d701521cf1ee19cc (32 Б)
+                        cipher_suites        BPZ_RSA_OAEP_SHA256_WITH_AES_256_GCM_HKDF_SHA256
+[11:01:55.279] SERVER#1  ━━ КРОК 2/7 ━━ → server_hello
+                        server_random        001a3e79e08a6523…3a289da3c1df98d8 (32 Б)
+                        cipher_suite         BPZ_RSA_OAEP_SHA256_WITH_AES_256_GCM_HKDF_SHA256
+                        public_key           RSA 2048 біт, SHA-256(SPKI) 0D:C0:48:CB:1A:58:29:5F…
+                        certificate          не надсилається (базовий варіант)
+[11:01:55.279] SERVER#1  ━━ КРОК 3/7 ━━ пропущено (базовий варіант): клієнт не перевіряє сертифікат у CA
+[11:01:55.282] SERVER#1  ━━ КРОК 4/7 ━━ ← premaster розшифровано приватним ключем
+                        encrypted_premaster  6dd1ac71a7c8cd72…486c1f40c9f95f97 (256 Б)
+                        premaster            9589a4788176cecb…9dd5940e6ecad3bb (48 Б)
+[11:01:55.282] SERVER#1  ━━ КРОК 5/7 ━━ ключі сеансу (HKDF-SHA256)
+                        master               35740c3928853c0b…76084609c45f17a0 (48 Б)
+                        client_write_key     55676015b93418c2…52900aa39e0640b1 (32 Б)
+                        server_write_key     edb1c71e8e09057e…2fc0f8cc2da37451 (32 Б)
+                        client_iv            cc869ce9e5642bfb69e5a35a (12 Б)
+                        server_iv            5f74d9bf38a24c8a4ed48c7f (12 Б)
+[11:01:55.282] SERVER#1  ━━ КРОК 6/7 ━━ ← finished клієнта «готовий» перевірено
+                        transcript_hash      b252f8e2650b35c2…1f8c8e056a46c6af (32 Б)
+                        verify_data          bdca44eb2cdc305b…9661f7b01d1ec4ab (32 Б)
+[11:01:55.282] SERVER#1  ━━ КРОК 6/7 ━━ → finished «готовий» (зашифровано AES-256-GCM)
+                        verify_data          a6dad1b67430f61c…839823a06a2e501d (32 Б)
+                        seq                  0
+[11:01:55.282] SERVER#1  ━━ КРОК 7/7 ━━ рукостискання завершено — далі тільки AES-256-GCM на ключах сеансу
+[11:01:55.283] SERVER#1  ← data seq=1 (шифротекст 93 Б, tag 247dff29…) розшифровано
+[11:01:55.283] SERVER#1  ✔ 💬 клієнт: Перше повідомлення: переказати 100 грн
+[11:01:55.283] SERVER#1  → data seq=1 (AES-256-GCM: шифротекст 132 Б, tag 5242bd02…)
+[11:01:55.283] SERVER#1  ✘ seq=1, очікувався seq=2 — повтор (replay) або перестановка повідомлення, відхилено
+[11:01:55.284] SERVER#1  з'єднання закрито
+[11:01:55.694] SERVER    зупинка

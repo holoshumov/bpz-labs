@@ -1,0 +1,25 @@
+[11:01:53.233] SERVER    згенеровано пару ключів RSA-2048 за 24 мс (базовий варіант, сертифіката немає)
+                        public_key           C2:21:C2:86:4F:F3:F0:CE…
+[11:01:53.238] SERVER    слухаю 127.0.0.1:8443 (Ctrl+C — вихід)
+[11:01:53.364] SERVER#1  нове з'єднання від 127.0.0.1:62780
+[11:01:53.364] SERVER#1  ━━ КРОК 1/7 ━━ ← client_hello
+                        version              BPZ-TLS/1.0
+                        client_random        929ecf75e815eed7…5ce1a2487f38d203 (32 Б)
+                        cipher_suites        BPZ_RSA_OAEP_SHA256_WITH_AES_256_GCM_HKDF_SHA256
+[11:01:53.365] SERVER#1  ━━ КРОК 2/7 ━━ → server_hello
+                        server_random        ea5590ff62f648a7…cc67affe66ac2080 (32 Б)
+                        cipher_suite         BPZ_RSA_OAEP_SHA256_WITH_AES_256_GCM_HKDF_SHA256
+                        public_key           RSA 2048 біт, SHA-256(SPKI) C2:21:C2:86:4F:F3:F0:CE…
+                        certificate          не надсилається (базовий варіант)
+[11:01:53.365] SERVER#1  ━━ КРОК 3/7 ━━ пропущено (базовий варіант): клієнт не перевіряє сертифікат у CA
+[11:01:53.370] SERVER#1  ━━ КРОК 4/7 ━━ ← premaster розшифровано приватним ключем
+                        encrypted_premaster  639122af501c0459…1d099f49dbc46226 (256 Б)
+                        premaster            21753b10ca82e813…f705f83774a3fb25 (48 Б)
+[11:01:53.370] SERVER#1  ━━ КРОК 5/7 ━━ ключі сеансу (HKDF-SHA256)
+                        master               389072e7bbe944af…bb3db7d95207ae1e (48 Б)
+                        client_write_key     8b95253282d61424…2d83ab9aa280fe3c (32 Б)
+                        server_write_key     972481b7a67b49c6…0c2586ae2cbbfc5c (32 Б)
+                        client_iv            aab673882874ce5f53b3a679 (12 Б)
+                        server_iv            b673630faabd86584a3ba135 (12 Б)
+[11:01:53.371] SERVER#1  ✘ рукостискання НЕ завершено: finished клієнта не збігається з transcript hash сервера — повідомлення рукостискання змінено (MITM?) або verify_data невірний
+[11:01:53.780] SERVER    зупинка

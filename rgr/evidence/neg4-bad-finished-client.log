@@ -1,0 +1,26 @@
+[11:01:55.862] CLIENT    з'єднано з 127.0.0.1:8443
+[11:01:55.864] CLIENT    ━━ КРОК 1/7 ━━ → client_hello
+                        version              BPZ-TLS/1.0
+                        client_random        86cd1d5ee132e894…a893832fad975ad2 (32 Б)
+                        cipher_suites        BPZ_RSA_OAEP_SHA256_WITH_AES_256_GCM_HKDF_SHA256
+[11:01:55.866] CLIENT    ━━ КРОК 2/7 ━━ ← server_hello
+                        server_random        36e3aa4b5d8f9be6…306becdae9fbaeec (32 Б)
+                        cipher_suite         BPZ_RSA_OAEP_SHA256_WITH_AES_256_GCM_HKDF_SHA256
+                        public_key           RSA 2048 біт, SHA-256(SPKI) C6:E5:84:87:F3:5B:DF:7E…
+                        certificate          немає (базовий варіант: лише публічний ключ)
+[11:01:55.866] CLIENT    ━━ КРОК 3/7 ━━ пропущено (базовий варіант): перевірка сертифіката в центрі сертифікації не виконується
+[11:01:55.866] CLIENT    ━━ КРОК 4/7 ━━ → premaster (RSA-OAEP, SHA-256)
+                        premaster            4fc85b29f6722493…59ae02f3545cfe96 (48 Б)
+                        encrypted_premaster  7bce3ec52fbc6c8f…a458764c72c541e5 (256 Б)
+[11:01:55.867] CLIENT    ━━ КРОК 5/7 ━━ ключі сеансу (HKDF-SHA256)
+                        master               c2c37f52af5c52c1…212038c287c348ed (48 Б)
+                        client_write_key     9731764faeb98372…3279b40c9d8ccda5 (32 Б)
+                        server_write_key     76275238e0fe5bec…6d71bea1af63eabb (32 Б)
+                        client_iv            a26a0678e7e1fd0cafe89c5f (12 Б)
+                        server_iv            ef117ebdd03d10eaa3de9c6d (12 Б)
+[11:01:55.867] CLIENT    ⚠ ТЕСТ: verify_data навмисно зіпсовано (--bad-finished)
+[11:01:55.867] CLIENT    ━━ КРОК 6/7 ━━ → finished «готовий» (зашифровано AES-256-GCM)
+                        transcript_hash      14446bfa265b4a45…e8d199183667cc60 (32 Б)
+                        verify_data          4430e0ae0f8f35c8…7ebc839580db4661 (32 Б)
+                        seq                  0
+[11:01:55.868] CLIENT    ✘ рукостискання НЕ завершено: отримано alert: finished клієнта не збігається з transcript hash сервера — повідомлення рукостискання змінено (MITM?) або verify_data невірний

@@ -1,0 +1,46 @@
+[11:01:51.423] SERVER    завантажено keys/server.key + keys/server.crt (бонус: X.509)
+                        subject              C=UA, ST=Kyiv, L=Kyiv, O=KPI, OU=IM-31 Holoshumov, CN=localhost
+                        fingerprint256       17:C2:CE:BE:59:27:A3:A0:A7:10:D7:09:4D:71:2D:6E:5E:FE:9E:F7:DA:6B:BC:08:A0:AD:2A:17:73:A4:96:00
+[11:01:51.429] SERVER    слухаю 127.0.0.1:8443 (Ctrl+C — вихід)
+[11:01:51.481] SERVER#1  нове з'єднання від 127.0.0.1:62774
+[11:01:51.483] SERVER#1  ━━ КРОК 1/7 ━━ ← client_hello
+                        version              BPZ-TLS/1.0
+                        client_random        8d564c9919f86a79…55db6a33eb0a5eb3 (32 Б)
+                        cipher_suites        BPZ_RSA_OAEP_SHA256_WITH_AES_256_GCM_HKDF_SHA256
+[11:01:51.484] SERVER#1  ━━ КРОК 2/7 ━━ → server_hello
+                        server_random        d3fbe7c8ef5eb961…872a019c5731d61b (32 Б)
+                        cipher_suite         BPZ_RSA_OAEP_SHA256_WITH_AES_256_GCM_HKDF_SHA256
+                        public_key           RSA 2048 біт, SHA-256(SPKI) F3:D6:30:07:4A:E8:9B:49…
+                        certificate          X.509 самопідписаний (бонус)
+[11:01:51.484] SERVER#1  ━━ КРОК 3/7 ━━ пропущено (базовий варіант): клієнт не перевіряє сертифікат у CA
+[11:01:51.488] SERVER#1  ━━ КРОК 4/7 ━━ ← premaster розшифровано приватним ключем
+                        encrypted_premaster  ac827216a7610a6e…29f256b0e3dec30a (256 Б)
+                        premaster            99568457df34fe31…68ba31d9561a5727 (48 Б)
+[11:01:51.488] SERVER#1  ━━ КРОК 5/7 ━━ ключі сеансу (HKDF-SHA256)
+                        master               feb1621a8b62cf4e…422616160aa9fe8a (48 Б)
+                        client_write_key     f0b7136db2379c12…a85105257a770421 (32 Б)
+                        server_write_key     83c3e957517be4e7…67e2909f78af7c5f (32 Б)
+                        client_iv            a967144938f3af55302cedbc (12 Б)
+                        server_iv            626029565d8d58600e5eaeb1 (12 Б)
+[11:01:51.489] SERVER#1  ━━ КРОК 6/7 ━━ ← finished клієнта «готовий» перевірено
+                        transcript_hash      6131c5ee2c60b5e4…3777a73f0918e1d8 (32 Б)
+                        verify_data          47a7e848c9445e5a…c265a7d157a2ee5e (32 Б)
+[11:01:51.489] SERVER#1  ━━ КРОК 6/7 ━━ → finished «готовий» (зашифровано AES-256-GCM)
+                        verify_data          935ac7bb76ce5a4e…53e39e22ec8e2055 (32 Б)
+                        seq                  0
+[11:01:51.489] SERVER#1  ━━ КРОК 7/7 ━━ рукостискання завершено — далі тільки AES-256-GCM на ключах сеансу
+[11:01:51.489] SERVER#1  ← data seq=1 (шифротекст 94 Б, tag 4fac0090…) розшифровано
+[11:01:51.490] SERVER#1  ✔ 💬 клієнт: Привіт, сервере! Це захищений чат ІМ-31.
+[11:01:51.490] SERVER#1  → data seq=1 (AES-256-GCM: шифротекст 133 Б, tag 26615cbd…)
+[11:01:51.490] SERVER#1  ← data seq=2 (шифротекст 93 Б, tag 6f222a96…) розшифровано
+[11:01:51.490] SERVER#1  ✔ 💬 клієнт: Друге повідомлення: AES-256-GCM, nonce = IV xor seq
+[11:01:51.490] SERVER#1  → data seq=2 (AES-256-GCM: шифротекст 132 Б, tag 4cc82028…)
+[11:01:51.490] SERVER#1  ← data seq=3 (шифротекст 1064 Б, tag f9171c12…) розшифровано
+[11:01:51.490] SERVER#1  ✔ 📄 файл «message.txt» отримано й збережено
+                        size                 695 Б
+                        sha256 заявлений     430a2cd94ebd0a520ea6b439c58bc29cdf67c16021bab038e70feed80732660c
+                        sha256 обчислений    430a2cd94ebd0a520ea6b439c58bc29cdf67c16021bab038e70feed80732660c
+                        saved_as             received/1794740511490-message.txt
+[11:01:51.490] SERVER#1  → data seq=3 (AES-256-GCM: шифротекст 165 Б, tag 12de5262…)
+[11:01:51.491] SERVER#1  з'єднання закрито
+[11:01:51.901] SERVER    зупинка

@@ -1,0 +1,42 @@
+
+=== demo-basic ===
+  ✔ master однаковий: aa521ccae5bc4797…bc7ea1f89fe0943f
+  ✔ client_write_key однаковий: f99f23e4f96bc6de…ebbbe8f9bd78c717
+  ✔ server_write_key однаковий: 0ffa5b63668976da…0addd5371c7d2a11
+  ✔ client_iv однаковий: 1b1d9bf122f03286c8d47260
+  ✔ server_iv однаковий: 31c3db3d26e0c031e93b047b
+  ✔ SHA-256 файлу однаковий: 430a2cd94ebd0a520ea6b439c58bc29cdf67c16021bab038e70feed80732660c
+  ✔ чат: усі повідомлення підтверджено сервером
+
+=== demo-cert ===
+  ✔ master однаковий: feb1621a8b62cf4e…422616160aa9fe8a
+  ✔ client_write_key однаковий: f0b7136db2379c12…a85105257a770421
+  ✔ server_write_key однаковий: 83c3e957517be4e7…67e2909f78af7c5f
+  ✔ client_iv однаковий: a967144938f3af55302cedbc
+  ✔ server_iv однаковий: 626029565d8d58600e5eaeb1
+  ✔ SHA-256 файлу однаковий: 430a2cd94ebd0a520ea6b439c58bc29cdf67c16021bab038e70feed80732660c
+  ✔ чат: усі повідомлення підтверджено сервером
+
+=== demo-multi ===
+  сеанси на сервері: 2
+  ✔ у клієнтів A і B різні master: b796aaeb6526e17e…a649779a4a35290c ≠ 020b963d0ff4dc37…c43967414938306a
+
+=== demo-verbose ===
+  ✔ master однаковий: 0572d58b3f774ed11d8d026c26501ccb73be3cf4e8ee62a03ba0a5bf7ae029f5974361328429462a6d3f3fe9c5cafda2
+  ✔ client_write_key однаковий: 28593698a8651630771dab57e888b0d0c548aeb79a05ead9c3543732f1b83d99
+  ✔ server_write_key однаковий: 601373c465af0a09989293e0a803035b49da169af703321803c963a1d0d84a12
+  ✔ client_iv однаковий: 089bac33b3f6121af714959d
+  ✔ server_iv однаковий: 2058d2988801f099e150105b
+  ✔ SHA-256 файлу однаковий: 430a2cd94ebd0a520ea6b439c58bc29cdf67c16021bab038e70feed80732660c
+  ✔ чат: усі повідомлення підтверджено сервером
+
+=== Готово: логи в evidence/demo-*.log ===
+evidence/demo-basic-client.log
+evidence/demo-basic-server.log
+evidence/demo-cert-client.log
+evidence/demo-cert-server.log
+evidence/demo-multi-client-A.log
+evidence/demo-multi-client-B.log
+evidence/demo-multi-server.log
+evidence/demo-verbose-client.log
+evidence/demo-verbose-server.log

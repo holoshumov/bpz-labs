@@ -1,0 +1,17 @@
+{
+  "name": "bpz-rgr-tls-handshake",
+  "version": "1.0.0",
+  "description": "РГР БПЗ: імітація TLS/SSL-рукостискання (RSA-OAEP, HKDF-SHA256, AES-256-GCM) і захищений канал (чат, файл) на Node.js crypto + net",
+  "private": true,
+  "license": "MIT",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "server": "node server.js",
+    "client": "node client.js",
+    "mitm": "node mitm.js",
+    "cert": "bash scripts/gen-cert.sh",
+    "demo": "bash scripts/demo.sh",
+    "negative": "bash scripts/negative.sh",
+    "test": "node --test test/*.test.js"
+  }
+}

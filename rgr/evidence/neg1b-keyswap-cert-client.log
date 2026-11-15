@@ -1,0 +1,17 @@
+[11:01:53.943] CLIENT    з'єднано з 127.0.0.1:9443
+[11:01:53.945] CLIENT    ━━ КРОК 1/7 ━━ → client_hello
+                        version              BPZ-TLS/1.0
+                        client_random        4f735ef60d92571b…3d1bd855862d3d01 (32 Б)
+                        cipher_suites        BPZ_RSA_OAEP_SHA256_WITH_AES_256_GCM_HKDF_SHA256
+[11:01:53.977] CLIENT    ━━ КРОК 2/7 ━━ ← server_hello
+                        server_random        16e399be071376d5…cabd6a05dce24b45 (32 Б)
+                        cipher_suite         BPZ_RSA_OAEP_SHA256_WITH_AES_256_GCM_HKDF_SHA256
+                        public_key           RSA 2048 біт, SHA-256(SPKI) 8F:29:12:E9:D1:35:05:CF…
+                        certificate          X.509 (PEM) — бонус
+[11:01:53.978] CLIENT    сертифікат сервера (X.509)
+                        subject              C=UA, ST=Kyiv, L=Kyiv, O=KPI, OU=IM-31 Holoshumov, CN=localhost
+                        issuer               C=UA, ST=Kyiv, L=Kyiv, O=KPI, OU=IM-31 Holoshumov, CN=localhost
+                        valid                Nov 15 11:01:23 2026 GMT — Nov 15 11:01:23 2027 GMT
+                        fingerprint256       17:C2:CE:BE:59:27:A3:A0:A7:10:D7:09:4D:71:2D:6E:5E:FE:9E:F7:DA:6B:BC:08:A0:AD:2A:17:73:A4:96:00
+                        самопідписаний       так, підпис коректний
+[11:01:53.978] CLIENT    ✘ рукостискання НЕ завершено: public_key із server_hello НЕ збігається з ключем у сертифікаті — можлива підміна (MITM)

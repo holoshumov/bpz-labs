@@ -1,0 +1,41 @@
+[11:01:52.101] CLIENT    з'єднано з 127.0.0.1:8443
+[11:01:52.103] CLIENT    ━━ КРОК 1/7 ━━ → client_hello
+                        version              BPZ-TLS/1.0
+                        client_random        011dc1c7af4b3c03…d3f530939ed9540d (32 Б)
+                        cipher_suites        BPZ_RSA_OAEP_SHA256_WITH_AES_256_GCM_HKDF_SHA256
+[11:01:52.106] CLIENT    ━━ КРОК 2/7 ━━ ← server_hello
+                        server_random        fd3dff7da282d03c…92081293d577df18 (32 Б)
+                        cipher_suite         BPZ_RSA_OAEP_SHA256_WITH_AES_256_GCM_HKDF_SHA256
+                        public_key           RSA 2048 біт, SHA-256(SPKI) 06:74:65:05:3E:47:B8:8C…
+                        certificate          немає (базовий варіант: лише публічний ключ)
+[11:01:52.106] CLIENT    ━━ КРОК 3/7 ━━ пропущено (базовий варіант): перевірка сертифіката в центрі сертифікації не виконується
+[11:01:52.107] CLIENT    ━━ КРОК 4/7 ━━ → premaster (RSA-OAEP, SHA-256)
+                        premaster            32faa8ef2ba77ef6…30664a72fb14fd50 (48 Б)
+                        encrypted_premaster  362bcf4a198b3f43…205129a0bb475972 (256 Б)
+[11:01:52.107] CLIENT    ━━ КРОК 5/7 ━━ ключі сеансу (HKDF-SHA256)
+                        master               020b963d0ff4dc37…c43967414938306a (48 Б)
+                        client_write_key     9cff4dc8e7d97a89…37a667258bb160a2 (32 Б)
+                        server_write_key     b91477d9d6250a79…c30ba482b4901901 (32 Б)
+                        client_iv            a1d73cc888f2c65c0551a21a (12 Б)
+                        server_iv            f7d210af63521a07bd910593 (12 Б)
+[11:01:52.107] CLIENT    ━━ КРОК 6/7 ━━ → finished «готовий» (зашифровано AES-256-GCM)
+                        transcript_hash      92a3745fba4ed8ea…b26ca72d95f11aac (32 Б)
+                        verify_data          afbac76b066796ba…669824958869277d (32 Б)
+                        seq                  0
+[11:01:52.109] CLIENT    ━━ КРОК 6/7 ━━ ← finished сервера «готовий» перевірено
+                        verify_data          0117e65a3a010bac…70eecbd5449aeef6 (32 Б)
+[11:01:52.109] CLIENT    ━━ КРОК 7/7 ━━ рукостискання завершено — далі тільки AES-256-GCM на ключах сеансу
+[11:01:52.109] CLIENT    💬 я: Я клієнт B
+[11:01:52.109] CLIENT    → data seq=1 (AES-256-GCM: шифротекст 42 Б, tag 554d6c55…)
+[11:01:52.109] CLIENT    📄 надсилаю файл «message.txt»
+                        size                 695 Б
+                        sha256               430a2cd94ebd0a520ea6b439c58bc29cdf67c16021bab038e70feed80732660c
+[11:01:52.109] CLIENT    → data seq=2 (AES-256-GCM: шифротекст 1064 Б, tag 84a7b6e2…)
+[11:01:52.110] CLIENT    ← data seq=1 (шифротекст 81 Б, tag 3bca504f…) розшифровано
+[11:01:52.110] CLIENT    ✔ підтвердження: сервер отримав «Я клієнт B»
+[11:01:52.111] CLIENT    ← data seq=2 (шифротекст 165 Б, tag 13873464…) розшифровано
+[11:01:52.111] CLIENT    ✔ сервер зберіг файл «message.txt»
+                        sha256 на сервері    430a2cd94ebd0a520ea6b439c58bc29cdf67c16021bab038e70feed80732660c
+                        saved_as             1794740512110-message.txt
+[11:01:52.111] CLIENT    усі повідомлення підтверджено, завершую
+[11:01:52.111] CLIENT    з'єднання закрито
