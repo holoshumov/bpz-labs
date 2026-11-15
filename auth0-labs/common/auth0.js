@@ -30,6 +30,13 @@ function cfg() {
 }
 
 const C = cfg();
+// Тестовий користувач. На tenant викладача пароль змінити не можна (немає update:users),
+// тому там він окремий: KPI_TEST_USER_PASSWORD.
+const TEST = {
+  email: E.TEST_USER_EMAIL,
+  password: C.name === 'kpi' ? (E.KPI_TEST_USER_PASSWORD || E.TEST_USER_PASSWORD) : E.TEST_USER_PASSWORD,
+  newPassword: E.TEST_USER_NEW_PASSWORD,
+};
 const CONNECTION = 'Username-Password-Authentication';
 
 // ---------- утиліти ----------
@@ -42,7 +49,7 @@ function decode(jwt) {
     payload: JSON.parse(Buffer.from(p, 'base64url')),
   };
 }
-const SECRET_KEYS = /token|secret|password|^code$/i;
+const SECRET_KEYS = /token|secret|password|^code$|^authorization$|code_verifier/i;
 function redact(obj) {
   if (Array.isArray(obj)) return obj.map(redact);
   if (obj && typeof obj === 'object') {
@@ -51,6 +58,15 @@ function redact(obj) {
         typeof v === 'string' && /password/i.test(k) ? '********'
           : SECRET_KEYS.test(k) && typeof v === 'string' ? short(v) : redact(v)]),
     );
+  }
+  return obj;
+}
+
+function maskCreds(obj) {
+  if (Array.isArray(obj)) return obj.map(maskCreds);
+  if (obj && typeof obj === 'object') {
+    return Object.fromEntries(Object.entries(obj).map(([k, v]) => [k,
+      typeof v === 'string' && /password|client_secret/i.test(k) ? '********' : maskCreds(v)]));
   }
   return obj;
 }
@@ -65,7 +81,8 @@ function evidence(labDir, name) {
   const write = (file, text) => fs.appendFileSync(file, text + '\n');
   return function log(title, data) {
     const head = `[${ts()}] [tenant=${C.name} ${C.domain}] ${title}`;
-    const full = data === undefined ? head : `${head}\n${JSON.stringify(data, null, 2)}`;
+    // у raw токени повні (для jwt.io / скріншотів), але client_secret і паролі приховано й там
+    const full = data === undefined ? head : `${head}\n${JSON.stringify(maskCreds(data), null, 2)}`;
     const cut = data === undefined ? head : `${head}\n${JSON.stringify(redact(data), null, 2)}`;
     write(raw, full);
     write(safe, cut);
@@ -89,8 +106,16 @@ async function http(method, url, { body, form, token } = {}) {
   const text = await res.text();
   let json;
   try { json = text ? JSON.parse(text) : null; } catch { json = text; }
-  return { status: res.status, body: json };
+  return {
+    status: res.status,
+    body: json,
+    // запит для журналу доказів (секрети обрізає redact() під час запису в evidence/*.log)
+    request: { method, url, headers: { ...headers }, body: form || body },
+  };
 }
+
+// Пара «запит + відповідь» для журналу
+const rr = (r) => ({ request: r.request, response: { status: r.status, body: r.body } });
 
 // ---------- OAuth2 ----------
 function tokenEndpoint(form) {
@@ -145,6 +170,6 @@ async function findUserByEmail(email) {
 }
 
 module.exports = {
-  C, CONNECTION, E, ts, short, decode, redact, evidence,
+  C, CONNECTION, E, TEST, rr, ts, short, decode, redact, evidence,
   http, tokenEndpoint, clientCredentials, passwordLogin, refresh, authCode, mgmt, userinfo, findUserByEmail,
 };

@@ -1,13 +1,34 @@
-[2026-11-14T23:37:16.154Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] POST /oauth/token grant_type=password audience=https://bpz-lab-api → 200
+[2026-11-15T08:59:22.695Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] POST /oauth/token grant_type=password audience=https://bpz-lab-api → 200
 {
-  "access_token": "eyJhbGciOi...bcsJTA",
-  "refresh_token": "O2VJP_qDfK...X3D2NJ",
-  "id_token": "eyJhbGciOi...7Z18bQ",
-  "scope": "openid profile email offline_access",
-  "expires_in": 86400,
-  "token_type": "Bearer"
+  "request": {
+    "method": "POST",
+    "url": "https://dev-b5ra33c6diywgvbd.us.auth0.com/oauth/token",
+    "headers": {
+      "content-type": "application/x-www-form-urlencoded"
+    },
+    "body": {
+      "client_id": "blXIJdzCZkUJCXgX5uRWJmstjef0CjnA",
+      "client_secret": "DgFlY3Ca_k...JWNL1M",
+      "grant_type": "password",
+      "username": "holoshumov.bpz.lab@example.com",
+      "password": "********",
+      "audience": "https://bpz-lab-api",
+      "scope": "openid profile email offline_access"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "access_token": "eyJhbGciOi...YShenQ",
+      "refresh_token": "Fyc5GfVuD8...qaiypJ",
+      "id_token": "eyJhbGciOi...FMIgrw",
+      "scope": "openid profile email offline_access",
+      "expires_in": 120,
+      "token_type": "Bearer"
+    }
+  }
 }
-[2026-11-14T23:37:16.156Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] access_token payload
+[2026-11-15T08:59:22.698Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] access_token payload
 {
   "iss": "https://dev-b5ra33c6diywgvbd.us.auth0.com/",
   "sub": "auth0|6af8f0a21bebf360b205420f",
@@ -15,84 +36,162 @@
     "https://bpz-lab-api",
     "https://dev-b5ra33c6diywgvbd.us.auth0.com/userinfo"
   ],
-  "iat": 1794699436,
-  "exp": 1794785836,
+  "iat": 1794733162,
+  "exp": 1794733282,
   "scope": "openid profile email offline_access",
   "gty": "password",
   "azp": "blXIJdzCZkUJCXgX5uRWJmstjef0CjnA"
 }
-[2026-11-14T23:37:16.157Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] id_token payload
+[2026-11-15T08:59:22.698Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] id_token payload
 {
   "nickname": "holoshumov.bpz.lab",
   "name": "holoshumov.bpz.lab@example.com",
   "picture": "https://s.gravatar.com/avatar/44ebb9a84740f0fdac64731cf1f11e91?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fho.png",
-  "updated_at": "2026-11-14T23:37:16.061Z",
+  "updated_at": "2026-11-15T08:59:22.590Z",
   "email": "holoshumov.bpz.lab@example.com",
   "email_verified": false,
   "iss": "https://dev-b5ra33c6diywgvbd.us.auth0.com/",
   "aud": "blXIJdzCZkUJCXgX5uRWJmstjef0CjnA",
   "sub": "auth0|6af8f0a21bebf360b205420f",
-  "iat": 1794699436,
-  "exp": 1794735436
+  "iat": 1794733162,
+  "exp": 1794769162
 }
-[2026-11-14T23:37:19.471Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] POST /oauth/token grant_type=refresh_token → 200
+[2026-11-15T08:59:26.012Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] POST /oauth/token grant_type=refresh_token → 200
 {
-  "access_token": "eyJhbGciOi...adihYA",
-  "id_token": "eyJhbGciOi...3hfyCA",
-  "scope": "openid profile email offline_access",
-  "expires_in": 86400,
-  "token_type": "Bearer"
+  "request": {
+    "method": "POST",
+    "url": "https://dev-b5ra33c6diywgvbd.us.auth0.com/oauth/token",
+    "headers": {
+      "content-type": "application/x-www-form-urlencoded"
+    },
+    "body": {
+      "client_id": "blXIJdzCZkUJCXgX5uRWJmstjef0CjnA",
+      "client_secret": "DgFlY3Ca_k...JWNL1M",
+      "grant_type": "refresh_token",
+      "refresh_token": "Fyc5GfVuD8...qaiypJ"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "access_token": "eyJhbGciOi...odvMgw",
+      "id_token": "eyJhbGciOi...JWAOFA",
+      "scope": "openid profile email offline_access",
+      "expires_in": 120,
+      "token_type": "Bearer"
+    }
+  }
 }
-[2026-11-14T23:37:19.471Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] Порівняння iat/exp: старий vs новий access_token
+[2026-11-15T08:59:26.014Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] Порівняння iat/exp: старий vs новий access_token
 {
   "old": {
-    "iat": 1794699436,
-    "exp": 1794785836,
-    "iat_human": "2026-11-14T23:37:16.000Z",
-    "exp_human": "2026-11-15T23:37:16.000Z"
+    "iat": 1794733162,
+    "exp": 1794733282,
+    "iat_human": "2026-11-15T08:59:22.000Z",
+    "exp_human": "2026-11-15T09:01:22.000Z"
   },
   "new": {
-    "iat": 1794699439,
-    "exp": 1794785839,
-    "iat_human": "2026-11-14T23:37:19.000Z",
-    "exp_human": "2026-11-15T23:37:19.000Z"
+    "iat": 1794733165,
+    "exp": 1794733285,
+    "iat_human": "2026-11-15T08:59:25.000Z",
+    "exp_human": "2026-11-15T09:01:25.000Z"
   },
   "changed": true
 }
-[2026-11-14T23:37:20.421Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] PATCH /api/v2/users/auth0|6af8f0a21bebf360b205420f {password} → 200
+[2026-11-15T08:59:27.058Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] PATCH /api/v2/users/auth0|6af8f0a21bebf360b205420f {password} → 200
 {
-  "user_id": "auth0|6af8f0a21bebf360b205420f",
-  "created_at": "2026-11-14T23:37:06.904Z",
-  "email": "holoshumov.bpz.lab@example.com",
-  "email_verified": false,
-  "identities": [
-    {
-      "user_id": "6af8f0a21bebf360b205420f",
-      "provider": "auth0",
-      "connection": "Username-Password-Authentication",
-      "isSocial": false
+  "request": {
+    "method": "PATCH",
+    "url": "https://dev-b5ra33c6diywgvbd.us.auth0.com/api/v2/users/auth0%7C6af8f0a21bebf360b205420f",
+    "headers": {
+      "content-type": "application/json",
+      "authorization": "Bearer eyJ...3khhuw"
+    },
+    "body": {
+      "password": "********",
+      "connection": "Username-Password-Authentication"
     }
-  ],
-  "name": "holoshumov.bpz.lab@example.com",
-  "nickname": "holoshumov.bpz.lab",
-  "picture": "https://s.gravatar.com/avatar/44ebb9a84740f0fdac64731cf1f11e91?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fho.png",
-  "updated_at": "2026-11-14T23:37:16.061Z",
-  "last_ip": "91.223.227.33",
-  "last_login": "2026-11-14T23:37:16.060Z",
-  "logins_count": 1
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "user_id": "auth0|6af8f0a21bebf360b205420f",
+      "created_at": "2026-11-14T23:37:06.904Z",
+      "email": "holoshumov.bpz.lab@example.com",
+      "email_verified": false,
+      "identities": [
+        {
+          "user_id": "6af8f0a21bebf360b205420f",
+          "provider": "auth0",
+          "connection": "Username-Password-Authentication",
+          "isSocial": false
+        }
+      ],
+      "name": "holoshumov.bpz.lab@example.com",
+      "nickname": "holoshumov.bpz.lab",
+      "picture": "https://s.gravatar.com/avatar/44ebb9a84740f0fdac64731cf1f11e91?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fho.png",
+      "updated_at": "2026-11-15T08:59:22.590Z",
+      "last_password_reset": "********",
+      "last_ip": "91.223.227.33",
+      "last_login": "2026-11-15T08:59:22.589Z",
+      "logins_count": 22
+    }
+  }
 }
-[2026-11-14T23:37:20.716Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] Вхід зі СТАРИМ паролем → 403
+[2026-11-15T08:59:27.397Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] Вхід зі СТАРИМ паролем → 403
 {
-  "error": "invalid_grant",
-  "error_description": "Wrong email or password."
+  "request": {
+    "method": "POST",
+    "url": "https://dev-b5ra33c6diywgvbd.us.auth0.com/oauth/token",
+    "headers": {
+      "content-type": "application/x-www-form-urlencoded"
+    },
+    "body": {
+      "client_id": "blXIJdzCZkUJCXgX5uRWJmstjef0CjnA",
+      "client_secret": "DgFlY3Ca_k...JWNL1M",
+      "grant_type": "password",
+      "username": "holoshumov.bpz.lab@example.com",
+      "password": "********",
+      "audience": "https://bpz-lab-api",
+      "scope": "openid profile email offline_access"
+    }
+  },
+  "response": {
+    "status": 403,
+    "body": {
+      "error": "invalid_grant",
+      "error_description": "Wrong email or password."
+    }
+  }
 }
-[2026-11-14T23:37:21.260Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] Вхід з НОВИМ паролем → 200
+[2026-11-15T08:59:27.876Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] Вхід з НОВИМ паролем → 200
 {
-  "access_token": "eyJhbGciOi...qxy_WQ",
-  "refresh_token": "eMK791Bhr9...afkoJu",
-  "id_token": "eyJhbGciOi...auo_1Q",
-  "scope": "openid profile email offline_access",
-  "expires_in": 86400,
-  "token_type": "Bearer"
+  "request": {
+    "method": "POST",
+    "url": "https://dev-b5ra33c6diywgvbd.us.auth0.com/oauth/token",
+    "headers": {
+      "content-type": "application/x-www-form-urlencoded"
+    },
+    "body": {
+      "client_id": "blXIJdzCZkUJCXgX5uRWJmstjef0CjnA",
+      "client_secret": "DgFlY3Ca_k...JWNL1M",
+      "grant_type": "password",
+      "username": "holoshumov.bpz.lab@example.com",
+      "password": "********",
+      "audience": "https://bpz-lab-api",
+      "scope": "openid profile email offline_access"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "access_token": "eyJhbGciOi...MKvuSA",
+      "refresh_token": "Ta2YwxEYdu...Zw8CIQ",
+      "id_token": "eyJhbGciOi...TYZOMQ",
+      "scope": "openid profile email offline_access",
+      "expires_in": 120,
+      "token_type": "Bearer"
+    }
+  }
 }
-[2026-11-14T23:37:21.262Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] .env: TEST_USER_PASSWORD і TEST_USER_NEW_PASSWORD поміняно місцями
+[2026-11-15T08:59:27.879Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] .env: TEST_USER_PASSWORD і TEST_USER_NEW_PASSWORD поміняно місцями

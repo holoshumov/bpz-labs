@@ -16,7 +16,7 @@ async function get(title, token) {
   // 1. Вхід → сервер видає JWE
   const lr = await fetch(BASE + '/api/login', {
     method: 'POST', headers: { 'content-type': 'application/json' },
-    body: JSON.stringify({ login: A.E.TEST_USER_EMAIL, password: A.E.TEST_USER_PASSWORD }),
+    body: JSON.stringify({ login: A.TEST.email, password: A.TEST.password }),
   });
   const { token: jwe } = await lr.json();
   const parts = jwe.split('.');
@@ -36,7 +36,7 @@ async function get(title, token) {
   await get('GET / з пошкодженим JWE', bad.join('.'));
 
   // 4. Справжній Auth0-токен (JWS) без шифрування → підпис валідний → 200
-  const login = await A.passwordLogin(A.E.TEST_USER_EMAIL, A.E.TEST_USER_PASSWORD);
+  const login = await A.passwordLogin(A.TEST.email, A.TEST.password);
   const jws = login.body.access_token;
   await get('GET / з оригінальним Auth0 JWS (RS256)', jws);
 

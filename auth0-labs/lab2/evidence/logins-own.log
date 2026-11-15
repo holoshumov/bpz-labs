@@ -11,3 +11,118 @@
   "iat": "2026-11-14T23:37:30.000Z",
   "exp": "2026-11-15T23:37:30.000Z"
 }
+[2026-11-14T23:42:31.983Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] Вхід #2/10 → 200 (password)
+{
+  "roles_requested": [
+    "editor"
+  ],
+  "roles_now": [
+    "editor"
+  ],
+  "access_token": "eyJhbGciOi...qw7Buw",
+  "iat": "2026-11-14T23:42:31.000Z",
+  "exp": "2026-11-14T23:44:31.000Z"
+}
+[2026-11-15T00:51:07.083Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] Вхід #3/10 → 200 (password)
+{
+  "roles_requested": [
+    "admin"
+  ],
+  "roles_now": [
+    "admin"
+  ],
+  "access_token": "eyJhbGciOi...LXnjBg",
+  "iat": "2026-11-15T00:51:06.000Z",
+  "exp": "2026-11-15T00:53:06.000Z"
+}
+[2026-11-15T02:33:32.099Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] Вхід #4/10 → 200 (password)
+{
+  "roles_requested": [
+    "viewer",
+    "editor"
+  ],
+  "roles_now": [
+    "editor",
+    "viewer"
+  ],
+  "access_token": "eyJhbGciOi..._oSIBw",
+  "iat": "2026-11-15T02:33:32.000Z",
+  "exp": "2026-11-15T02:35:32.000Z"
+}
+[2026-11-15T04:09:45.150Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] Вхід #5/10 → 200 (password)
+{
+  "roles_requested": [
+    "editor",
+    "admin"
+  ],
+  "roles_now": [
+    "admin",
+    "editor"
+  ],
+  "access_token": "eyJhbGciOi...ndOGSQ",
+  "iat": "2026-11-15T04:09:45.000Z",
+  "exp": "2026-11-15T04:11:45.000Z"
+}
+[2026-11-15T05:32:01.024Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] Вхід #6/10 → 200 (password)
+{
+  "roles_requested": [
+    "viewer",
+    "admin"
+  ],
+  "roles_now": [
+    "admin",
+    "viewer"
+  ],
+  "access_token": "eyJhbGciOi...WP-NkA",
+  "iat": "2026-11-15T05:32:01.000Z",
+  "exp": "2026-11-15T05:34:01.000Z"
+}
+[2026-11-15T06:40:40.339Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] Вхід #7/10 → 200 (password)
+{
+  "roles_requested": [
+    "viewer",
+    "editor",
+    "admin"
+  ],
+  "roles_now": [
+    "admin",
+    "editor",
+    "viewer"
+  ],
+  "access_token": "eyJhbGciOi...hnPgBg",
+  "iat": "2026-11-15T06:40:40.000Z",
+  "exp": "2026-11-15T06:42:40.000Z"
+}
+[2026-11-15T08:00:56.661Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] Вхід #8/10 → 200 (password)
+{
+  "roles_requested": [],
+  "roles_now": [],
+  "access_token": "eyJhbGciOi...735Y1A",
+  "iat": "2026-11-15T08:00:56.000Z",
+  "exp": "2026-11-15T08:02:56.000Z"
+}
+[2026-11-15T08:42:20.466Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] Вхід #9/10 → 200 (password)
+{
+  "roles_requested": [
+    "admin"
+  ],
+  "roles_now": [
+    "admin"
+  ],
+  "access_token": "eyJhbGciOi...8yoxCQ",
+  "iat": "2026-11-15T08:42:20.000Z",
+  "exp": "2026-11-15T08:44:20.000Z"
+}
+[2026-11-15T08:56:50.576Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] Вхід #10/10 → 200 (password)
+{
+  "roles_requested": [
+    "viewer"
+  ],
+  "roles_now": [
+    "viewer"
+  ],
+  "access_token": "eyJhbGciOi...fIp3PA",
+  "iat": "2026-11-15T08:56:50.000Z",
+  "exp": "2026-11-15T08:58:50.000Z"
+}
+[2026-11-15T08:56:50.578Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] Готово

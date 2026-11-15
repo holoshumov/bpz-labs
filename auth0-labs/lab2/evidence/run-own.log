@@ -1,11 +1,29 @@
-[2026-11-14T23:37:06.062Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] POST /oauth/token grant_type=client_credentials → 200
+[2026-11-15T08:56:30.483Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] POST /oauth/token grant_type=client_credentials → 200
 {
-  "access_token": "eyJhbGciOi...UWTqAw",
-  "scope": "read:users create:users update:users read:roles create:roles update:roles delete:roles create:role_members read:role_members delete:role_members read:users_app_metadata",
-  "expires_in": 86400,
-  "token_type": "Bearer"
+  "request": {
+    "method": "POST",
+    "url": "https://dev-b5ra33c6diywgvbd.us.auth0.com/oauth/token",
+    "headers": {
+      "content-type": "application/x-www-form-urlencoded"
+    },
+    "body": {
+      "client_id": "blXIJdzCZkUJCXgX5uRWJmstjef0CjnA",
+      "client_secret": "DgFlY3Ca_k...JWNL1M",
+      "grant_type": "client_credentials",
+      "audience": "https://dev-b5ra33c6diywgvbd.us.auth0.com/api/v2/"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "access_token": "eyJhbGciOi...At-ayQ",
+      "scope": "read:users create:users update:users read:roles create:roles update:roles delete:roles create:role_members read:role_members delete:role_members read:users_app_metadata",
+      "expires_in": 86400,
+      "token_type": "Bearer"
+    }
+  }
 }
-[2026-11-14T23:37:06.063Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] Розкодований access_token (header + payload)
+[2026-11-15T08:56:30.486Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] Розкодований access_token (header + payload)
 {
   "header": {
     "alg": "RS256",
@@ -16,97 +34,156 @@
     "iss": "https://dev-b5ra33c6diywgvbd.us.auth0.com/",
     "sub": "blXIJdzCZkUJCXgX5uRWJmstjef0CjnA@clients",
     "aud": "https://dev-b5ra33c6diywgvbd.us.auth0.com/api/v2/",
-    "iat": 1794699426,
-    "exp": 1794785826,
+    "iat": 1794732990,
+    "exp": 1794819390,
     "scope": "read:users create:users update:users read:roles create:roles update:roles delete:roles create:role_members read:role_members delete:role_members read:users_app_metadata",
     "gty": "client-credentials",
     "azp": "blXIJdzCZkUJCXgX5uRWJmstjef0CjnA"
   },
-  "exp_human": "2026-11-15T23:37:06.000Z",
-  "iat_human": "2026-11-14T23:37:06.000Z"
+  "exp_human": "2026-11-16T08:56:30.000Z",
+  "iat_human": "2026-11-15T08:56:30.000Z"
 }
-[2026-11-14T23:37:06.506Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] POST /api/v2/users (демо-користувач) → 201
+[2026-11-15T08:56:30.837Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] POST /api/v2/users (демо-користувач) → 201
 {
   "request": {
-    "email": "lab2-demo-1794699426063@example.com",
-    "password": "********",
-    "connection": "Username-Password-Authentication"
+    "method": "POST",
+    "url": "https://dev-b5ra33c6diywgvbd.us.auth0.com/api/v2/users",
+    "headers": {
+      "content-type": "application/json",
+      "authorization": "Bearer eyJ...At-ayQ"
+    },
+    "body": {
+      "email": "lab2-demo-1794732990487@example.com",
+      "password": "********",
+      "connection": "Username-Password-Authentication"
+    }
   },
   "response": {
-    "user_id": "auth0|6af8f0a2997cd4d9d193eebe",
-    "created_at": "2026-11-14T23:37:06.460Z",
-    "email": "lab2-demo-1794699426063@example.com",
-    "email_verified": false,
-    "identities": [
-      {
-        "connection": "Username-Password-Authentication",
-        "user_id": "6af8f0a2997cd4d9d193eebe",
-        "provider": "auth0",
-        "isSocial": false
-      }
-    ],
-    "name": "lab2-demo-1794699426063@example.com",
-    "nickname": "lab2-demo-1794699426063",
-    "picture": "https://s.gravatar.com/avatar/42136a2c896b163847a82fcaa1bec8bd?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fla.png",
-    "updated_at": "2026-11-14T23:37:06.461Z"
+    "status": 201,
+    "body": {
+      "user_id": "auth0|6af973be1bebf360b2058201",
+      "created_at": "2026-11-15T08:56:30.797Z",
+      "email": "lab2-demo-1794732990487@example.com",
+      "email_verified": false,
+      "identities": [
+        {
+          "connection": "Username-Password-Authentication",
+          "user_id": "6af973be1bebf360b2058201",
+          "provider": "auth0",
+          "isSocial": false
+        }
+      ],
+      "name": "lab2-demo-1794732990487@example.com",
+      "nickname": "lab2-demo-1794732990487",
+      "picture": "https://s.gravatar.com/avatar/f32a3796bac50fa39de791cd4b84e8eb?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fla.png",
+      "updated_at": "2026-11-15T08:56:30.798Z"
+    }
   }
 }
-[2026-11-14T23:37:06.945Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] POST /api/v2/users → 201
+[2026-11-15T08:56:31.164Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] POST /api/v2/users → 409
 {
   "request": {
-    "email": "holoshumov.bpz.lab@example.com",
-    "password": "********",
-    "connection": "Username-Password-Authentication"
+    "method": "POST",
+    "url": "https://dev-b5ra33c6diywgvbd.us.auth0.com/api/v2/users",
+    "headers": {
+      "content-type": "application/json",
+      "authorization": "Bearer eyJ...At-ayQ"
+    },
+    "body": {
+      "email": "holoshumov.bpz.lab@example.com",
+      "password": "********",
+      "connection": "Username-Password-Authentication"
+    }
   },
   "response": {
-    "user_id": "auth0|6af8f0a21bebf360b205420f",
-    "created_at": "2026-11-14T23:37:06.904Z",
-    "email": "holoshumov.bpz.lab@example.com",
-    "email_verified": false,
-    "identities": [
+    "status": 409,
+    "body": {
+      "statusCode": 409,
+      "error": "Conflict",
+      "message": "The user already exists.",
+      "errorCode": "auth0_idp_error"
+    }
+  }
+}
+[2026-11-15T08:56:31.365Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] Користувач уже існує, беремо наявного
+{
+  "user_id": "auth0|6af8f0a21bebf360b205420f"
+}
+[2026-11-15T08:56:31.553Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] GET /api/v2/roles → 200
+{
+  "request": {
+    "method": "GET",
+    "url": "https://dev-b5ra33c6diywgvbd.us.auth0.com/api/v2/roles?per_page=100",
+    "headers": {
+      "authorization": "Bearer eyJ...At-ayQ"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": [
       {
-        "connection": "Username-Password-Authentication",
-        "user_id": "6af8f0a21bebf360b205420f",
-        "provider": "auth0",
-        "isSocial": false
+        "id": "rol_A9Qz91sjamFa9LW2",
+        "name": "admin",
+        "description": "Full access (BPZ lab2)",
+        "type": "tenant"
+      },
+      {
+        "id": "rol_JbWokZSzgr7bePDx",
+        "name": "editor",
+        "description": "Can edit content (BPZ lab2)",
+        "type": "tenant"
+      },
+      {
+        "id": "rol_ZJjVVqAcB0F74bsK",
+        "name": "viewer",
+        "description": "Read-only access (BPZ lab2)",
+        "type": "tenant"
       }
-    ],
-    "name": "holoshumov.bpz.lab@example.com",
-    "nickname": "holoshumov.bpz.lab",
-    "picture": "https://s.gravatar.com/avatar/44ebb9a84740f0fdac64731cf1f11e91?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fho.png",
-    "updated_at": "2026-11-14T23:37:06.904Z"
+    ]
   }
 }
-[2026-11-14T23:37:07.139Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] GET /api/v2/roles → 200
-[]
-[2026-11-14T23:37:07.355Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] POST /api/v2/roles (viewer) → 200
+[2026-11-15T08:56:31.761Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] POST /api/v2/users/{id}/roles [viewer] → 204
 {
-  "id": "rol_ZJjVVqAcB0F74bsK",
-  "name": "viewer",
-  "description": "Read-only access (BPZ lab2)",
-  "type": "tenant"
-}
-[2026-11-14T23:37:07.568Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] POST /api/v2/roles (editor) → 200
-{
-  "id": "rol_JbWokZSzgr7bePDx",
-  "name": "editor",
-  "description": "Can edit content (BPZ lab2)",
-  "type": "tenant"
-}
-[2026-11-14T23:37:07.789Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] POST /api/v2/roles (admin) → 200
-{
-  "id": "rol_A9Qz91sjamFa9LW2",
-  "name": "admin",
-  "description": "Full access (BPZ lab2)",
-  "type": "tenant"
-}
-[2026-11-14T23:37:08.014Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] POST /api/v2/users/{id}/roles [viewer] → 204
-null
-[2026-11-14T23:37:08.235Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] GET /api/v2/users/{id}/roles → 200
-[
-  {
-    "id": "rol_ZJjVVqAcB0F74bsK",
-    "name": "viewer",
-    "description": "Read-only access (BPZ lab2)"
+  "request": {
+    "method": "POST",
+    "url": "https://dev-b5ra33c6diywgvbd.us.auth0.com/api/v2/users/auth0%7C6af8f0a21bebf360b205420f/roles",
+    "headers": {
+      "content-type": "application/json",
+      "authorization": "Bearer eyJ...At-ayQ"
+    },
+    "body": {
+      "roles": [
+        "rol_ZJjVVqAcB0F74bsK"
+      ]
+    }
+  },
+  "response": {
+    "status": 204,
+    "body": null
   }
-]
+}
+[2026-11-15T08:56:31.967Z] [tenant=own dev-b5ra33c6diywgvbd.us.auth0.com] GET /api/v2/users/{id}/roles → 200
+{
+  "request": {
+    "method": "GET",
+    "url": "https://dev-b5ra33c6diywgvbd.us.auth0.com/api/v2/users/auth0%7C6af8f0a21bebf360b205420f/roles",
+    "headers": {
+      "authorization": "Bearer eyJ...At-ayQ"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": [
+      {
+        "id": "rol_A9Qz91sjamFa9LW2",
+        "name": "admin",
+        "description": "Full access (BPZ lab2)"
+      },
+      {
+        "id": "rol_ZJjVVqAcB0F74bsK",
+        "name": "viewer",
+        "description": "Read-only access (BPZ lab2)"
+      }
+    ]
+  }
+}

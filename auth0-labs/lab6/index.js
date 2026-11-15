@@ -19,7 +19,7 @@ const expOf = (t) => { try { return A.decode(t).payload.exp; } catch { return nu
 const cookies = (req) => Object.fromEntries((req.get('cookie') || '').split(';').filter(Boolean)
   .map((c) => c.trim().split('=').map(decodeURIComponent)));
 const tokensOut = (b) => ({
-  token: b.access_token, refresh_token: b.refresh_token, id_token: b.id_token,
+  access_token: b.access_token, token: b.access_token, refresh_token: b.refresh_token, id_token: b.id_token,
   expires_in: b.expires_in, expires_at: expOf(b.access_token),
 });
 
@@ -32,8 +32,7 @@ app.get('/login', (req, res) => {
   const verifier = crypto.randomBytes(32).toString('base64url');                       // PKCE
   const challenge = crypto.createHash('sha256').update(verifier).digest('base64url');
   pending.set(state, { verifier, created: Date.now() });
-  const url = new URL(`https://${A.C.domain}/authorize`);
-  url.search = new URLSearchParams({
+  const params = {
     client_id: A.C.clientId,
     redirect_uri: REDIRECT_URI,
     response_type: 'code',
@@ -43,11 +42,14 @@ app.get('/login', (req, res) => {
     state,
     code_challenge: challenge,
     code_challenge_method: 'S256',
-  }).toString();
+  };
+  // encodeURIComponent: пробіли як %20, redirect_uri як http%3A%2F%2Flocalhost%3A3000 — точно як в умові
+  const url = `https://${A.C.domain}/authorize?` +
+    Object.entries(params).map(([k, v]) => `${k}=${encodeURIComponent(v)}`).join('&');
   // state також прив'язуємо до браузера cookie (захист від CSRF / підкидання чужого code)
   res.setHeader('Set-Cookie', `oauth_state=${state}; HttpOnly; SameSite=Lax; Path=/; Max-Age=600`);
-  log(`GET /login → 302 ${url.toString().replace(/state=[^&]+/, 'state=…').replace(/code_challenge=[^&]+/, 'code_challenge=…')}`);
-  res.redirect(url.toString());
+  log(`GET /login → 302 ${url.replace(/state=[^&]+/, 'state=…').replace(/code_challenge=[^&]+/, 'code_challenge=…')}`);
+  res.redirect(url);
 });
 
 async function handleCallback(req, res) {

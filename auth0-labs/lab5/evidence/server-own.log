@@ -1,6 +1,17 @@
-[2026-11-14T23:40:31.298Z] ЛР5 слухає http://localhost:3000 (tenant=own dev-b5ra33c6diywgvbd.us.auth0.com, refresh threshold 60s)
-[2026-11-14T23:40:33.738Z] Login holoshumov.bpz.lab@example.com → OK (password), token eyJhbGciOi...kcvVgA
-[2026-11-14T23:40:34.492Z] GET / → 401: ERR_JWE_DECRYPTION_FAILED decryption operation failed
-[2026-11-14T23:40:35.169Z] GET / → 401: ERR_JWS_SIGNATURE_VERIFICATION_FAILED signature verification failed
-[2026-11-14T23:40:35.250Z] GET / → 401: ERR_JWS_SIGNATURE_VERIFICATION_FAILED signature verification failed
-[2026-11-14T23:40:35.251Z] GET / → 401: ERR_JOSE_ALG_NOT_ALLOWED "alg" (Algorithm) Header Parameter value not allowed
+[2026-11-15T08:58:00.962Z] ЛР5 слухає http://localhost:3000 (tenant=own dev-b5ra33c6diywgvbd.us.auth0.com, refresh threshold 60s)
+[2026-11-15T08:58:03.323Z] Login holoshumov.bpz.lab@example.com → 401: Wrong email or password.
+[2026-11-15T08:58:03.682Z] Login holoshumov.bpz.lab@example.com → OK (password), token eyJhbGciOi...ux9HSw
+[2026-11-15T08:58:04.252Z] GET / → 401: ERR_JWE_DECRYPTION_FAILED decryption operation failed
+[2026-11-15T08:58:04.485Z] Signup signup-1794733084@example.com: Management-токен отримано новий, діє до 2026-11-16T08:58:04.000Z
+[2026-11-15T08:58:04.835Z] POST /api/v2/users signup-1794733084@example.com → 201
+[2026-11-15T08:58:04.866Z] Signup signup2-1794733084@example.com: Management-токен з кешу, діє до 2026-11-16T08:58:04.000Z
+[2026-11-15T08:58:05.243Z] POST /api/v2/users signup2-1794733084@example.com → 201
+[2026-11-15T08:58:05.262Z] Signup holoshumov.bpz.lab@example.com: Management-токен з кешу, діє до 2026-11-16T08:58:04.000Z
+[2026-11-15T08:58:05.529Z] POST /api/v2/users holoshumov.bpz.lab@example.com → 409
+[2026-11-15T08:59:07.618Z] Токен спливає через 56 с (< 60) → refresh_token grant
+[2026-11-15T08:59:08.031Z] Токен оновлено: eyJhbGciOi...ux9HSw → eyJhbGciOi...JfewhQ, новий exp 2026-11-15T09:01:07.000Z
+[2026-11-15T08:59:08.831Z] Login holoshumov.bpz.lab@example.com → OK (password), token eyJhbGciOi..._URpGg
+[2026-11-15T08:59:09.168Z] GET / → 401: ERR_JWE_DECRYPTION_FAILED decryption operation failed
+[2026-11-15T08:59:09.837Z] GET / → 401: ERR_JWS_SIGNATURE_VERIFICATION_FAILED signature verification failed
+[2026-11-15T08:59:09.892Z] GET / → 401: ERR_JWS_SIGNATURE_VERIFICATION_FAILED signature verification failed
+[2026-11-15T08:59:09.894Z] GET / → 401: ERR_JOSE_ALG_NOT_ALLOWED "alg" (Algorithm) Header Parameter value not allowed

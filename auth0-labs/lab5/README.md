@@ -5,6 +5,7 @@
 ```bash
 npm run lab5            # сервер
 node lab5/demo.js       # у другому терміналі: усі сценарії → evidence/demo-<tenant>.log
+./lab4/requests.sh --refresh   # ті самі запити, що в ЛР4 (токен тепер JWE) + автооновлення
 ```
 
 - **Перевірка підпису**: `jose.jwtVerify` з `createRemoteJWKSet(https://<domain>/.well-known/jwks.json)` — RS256 (alg з allow-list), `iss = https://<domain>/`, `aud = <API>`, `exp`.

@@ -13,4 +13,4 @@ nohup node lab2/logins.js 10 15 > lab2/evidence/raw/logins.out 2>&1 &   # у ф�
 
 `logins.js`: перед кожним входом змінює набір ролей користувача (DELETE + POST `/users/{id}/roles`), робить вхід password grant, пише в лог час, ролі й фрагмент токена.
 
-Результати: `evidence/run-<tenant>.log`, `evidence/logins-<tenant>.log`.
+Результати: `evidence/run-<tenant>.log` (кожен запис — запит + відповідь), `evidence/logins-<tenant>.log`. Перший запуск на власному tenant, де видно створення ролей (`POST /api/v2/roles`) і користувача (201): `evidence/run-own-initial.log`; при повторних запусках ролі й користувач уже існують (409 / наявні ролі).

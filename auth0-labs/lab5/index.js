@@ -20,7 +20,8 @@ const log = (...a) => console.log(`[${A.ts()}]`, ...a);
 const bearer = (req) => (req.get('Authorization') || '').replace(/^Bearer\s+/i, '') || null;
 const expOf = (t) => { try { return A.decode(t).payload.exp; } catch { return null; } };
 const tokensOut = (b) => ({
-  token: b.access_token, // замінюється на JWE в wrap()
+  access_token: b.access_token,
+  token: b.access_token, // те саме під старим іменем з оригінального token_auth
   refresh_token: b.refresh_token,
   expires_in: b.expires_in,
   expires_at: expOf(b.access_token),
@@ -47,7 +48,8 @@ async function maybeRefresh(req) {
 async function wrap(out) {
   if (!out) return out;
   await J.verifyAuth0(out.token); // видаємо лише перевірений токен
-  return { ...out, token: await J.encrypt(out.token) };
+  const jwe = await J.encrypt(out.token);
+  return { ...out, access_token: jwe, token: jwe };
 }
 
 app.get('/', async (req, res) => {

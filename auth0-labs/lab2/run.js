@@ -9,14 +9,14 @@ const ROLES = [
 
 async function ensureRoles() {
   const list = await A.mgmt('GET', '/roles?per_page=100');
-  log(`GET /api/v2/roles → ${list.status}`, list.body);
+  log(`GET /api/v2/roles → ${list.status}`, A.rr(list));
   if (list.status !== 200) return null;
   const out = {};
   for (const r of ROLES) {
     let role = list.body.find((x) => x.name === r.name);
     if (!role) {
       const c = await A.mgmt('POST', '/roles', r);
-      log(`POST /api/v2/roles (${r.name}) → ${c.status}`, c.body);
+      log(`POST /api/v2/roles (${r.name}) → ${c.status}`, A.rr(c));
       role = c.body;
     }
     out[r.name] = role.id;
@@ -27,7 +27,7 @@ async function ensureRoles() {
 (async () => {
   // 1. Токен client_credentials для Management API
   const cc = await A.clientCredentials({ force: true });
-  log('POST /oauth/token grant_type=client_credentials → 200', cc.response.body);
+  log('POST /oauth/token grant_type=client_credentials → 200', A.rr(cc.response));
   const { header, payload } = A.decode(cc.token);
   log('Розкодований access_token (header + payload)', {
     header, payload,
@@ -36,13 +36,13 @@ async function ensureRoles() {
   });
 
   // 2. Створення користувача: демонстраційний (новий email → 201) і основний тестовий
-  const demo = { email: `lab2-demo-${Date.now()}@example.com`, password: A.E.TEST_USER_PASSWORD, connection: A.CONNECTION };
+  const demo = { email: `lab2-demo-${Date.now()}@example.com`, password: A.TEST.password, connection: A.CONNECTION };
   const d = await A.mgmt('POST', '/users', demo);
-  log(`POST /api/v2/users (демо-користувач) → ${d.status}`, { request: demo, response: d.body });
-  const email = A.E.TEST_USER_EMAIL;
-  const body = { email, password: A.E.TEST_USER_PASSWORD, connection: A.CONNECTION };
+  log(`POST /api/v2/users (демо-користувач) → ${d.status}`, A.rr(d));
+  const email = A.TEST.email;
+  const body = { email, password: A.TEST.password, connection: A.CONNECTION };
   const created = await A.mgmt('POST', '/users', body);
-  log(`POST /api/v2/users → ${created.status}`, { request: { ...body }, response: created.body });
+  log(`POST /api/v2/users → ${created.status}`, A.rr(created));
   let user = created.status === 201 ? created.body : await A.findUserByEmail(email);
   if (created.status === 409) log('Користувач уже існує, беремо наявного', { user_id: user?.user_id });
   if (!user) { log('Користувача не знайдено — зупинка'); process.exit(1); }
@@ -54,7 +54,7 @@ async function ensureRoles() {
     return;
   }
   const assign = await A.mgmt('POST', `/users/${encodeURIComponent(user.user_id)}/roles`, { roles: [roles.viewer] });
-  log(`POST /api/v2/users/{id}/roles [viewer] → ${assign.status}`, assign.body);
+  log(`POST /api/v2/users/{id}/roles [viewer] → ${assign.status}`, A.rr(assign));
   const cur = await A.mgmt('GET', `/users/${encodeURIComponent(user.user_id)}/roles`);
-  log(`GET /api/v2/users/{id}/roles → ${cur.status}`, cur.body);
+  log(`GET /api/v2/users/{id}/roles → ${cur.status}`, A.rr(cur));
 })().catch((e) => { console.error(e.response || e); process.exit(1); });

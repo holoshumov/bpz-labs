@@ -45,4 +45,4 @@ cp .env.example .env   # заповнити (див. нижче)
 
 У кожній папці: `README.md`, `NOTES.md` (теорія, що зроблено, питання до захисту), `SCREENSHOTS_CHECKLIST.md`, `evidence/`.
 
-`evidence/*.log` — з обрізаними токенами (в git). `evidence/raw/*.log` — повні токени для скріншотів (у `.gitignore`).
+`evidence/*.log` — запити й відповіді з обрізаними токенами (в git). `evidence/raw/*.log` — повні токени для скріншотів (у `.gitignore`); `client_secret` і паролі приховано й там.

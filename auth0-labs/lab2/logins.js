@@ -25,13 +25,13 @@ async function setRoles(userId, wanted) {
 }
 
 (async () => {
-  const user = await A.findUserByEmail(A.E.TEST_USER_EMAIL);
+  const user = await A.findUserByEmail(A.TEST.email);
   if (!user) throw new Error('Спершу запустіть lab2/run.js (створення користувача)');
   log(`Старт: ${COUNT} входів, інтервал ${INTERVAL_MIN} хв, user ${user.user_id}`);
   for (let i = 0; i < COUNT; i++) {
     const wanted = ROLE_SETS[i % ROLE_SETS.length];
     const r = await setRoles(user.user_id, wanted);
-    const login = await A.passwordLogin(A.E.TEST_USER_EMAIL, A.E.TEST_USER_PASSWORD);
+    const login = await A.passwordLogin(A.TEST.email, A.TEST.password);
     const p = login.status === 200 ? A.decode(login.body.access_token).payload : null;
     log(`Вхід #${i + 1}/${COUNT} → ${login.status} (${login.grant})`, {
       roles_requested: wanted,

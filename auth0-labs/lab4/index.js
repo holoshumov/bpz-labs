@@ -18,7 +18,8 @@ const log = (...a) => console.log(`[${A.ts()}]`, ...a);
 const bearer = (req) => (req.get('Authorization') || '').replace(/^Bearer\s+/i, '') || null;
 const expOf = (t) => { try { return A.decode(t).payload.exp; } catch { return null; } };
 const tokensOut = (b) => ({
-  token: b.access_token,
+  access_token: b.access_token,
+  token: b.access_token, // те саме під старим іменем з оригінального token_auth
   refresh_token: b.refresh_token,
   expires_in: b.expires_in,
   expires_at: expOf(b.access_token),

@@ -1,8 +1,10 @@
-### GET /login (own)
+### [2026-11-15T08:59:38Z] GET /login
 HTTP/1.1 302 Found
-Location: https://dev-b5ra33c6diywgvbd.us.auth0.com/authorize?client_id=blXIJdzCZkUJCXgX5uRWJmstjef0CjnA&redirect_uri=http%3A%2F%2Flocalhost%3A3000&response_type=code&response_mode=query&scope=openid+profile+email+offline_access&audience=https%3A%2F%2Fbpz-lab-api&state=…&code_challenge=…&code_challenge_method=S256
-### Auth0 /authorize → 302 https://dev-b5ra33c6diywgvbd.us.auth0.com/u/login?state=hKFo2SA2S2
+Location: https://dev-b5ra33c6diywgvbd.us.auth0.com/authorize?client_id=blXIJdzCZkUJCXgX5uRWJmstjef0CjnA&redirect_uri=http%3A%2F%2Flocalhost%3A3000&response_type=code&response_mode=query&scope=openid%20profile%20email%20offline_access&audience=https%3A%2F%2Fbpz-lab-api&state=…&code_challenge=…&code_challenge_method=S256
+### Auth0 /authorize → 302 https://dev-b5ra33c6diywgvbd.us.auth0.com/u/login?state=hKFo2SBoSz…
 ### callback з чужим state
-Invalid state. <a href="/">Назад</a> [400]
-### GET /logout → https://dev-b5ra33c6diywgvbd.us.auth0.com/v2/logout?client_id=blXIJdzCZkUJCXgX5uRWJmstjef0CjnA&returnTo=http%3A%2F%2Flocalhost%3A3000
+Invalid state. <a href="/">Назад</a> [HTTP 400]
+### callback з error
+Auth0 error: access_denied — User cancelled. <a href="/">Назад</a> [HTTP 400]
+### GET /logout → 302 https://dev-b5ra33c6diywgvbd.us.auth0.com/v2/logout?client_id=blXIJdzCZkUJCXgX5uRWJmstjef0CjnA&returnTo=http%3A%2F%2Flocalhost%3A3000
 ### Auth0 /v2/logout → 302 http://localhost:3000/

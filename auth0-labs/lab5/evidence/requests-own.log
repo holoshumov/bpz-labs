@@ -1,0 +1,37 @@
+
+==== [2026-11-15T08:58:02Z] 1. GET / без токена -> 200, сторінка логіну (HTML) ====
+HTTP 200, text/html; charset=UTF-8
+
+==== [2026-11-15T08:58:02Z] 2. POST /api/login з невірним паролем -> 401 + повідомлення Auth0 ====
+{"error":"invalid_grant","message":"Wrong email or password."}
+HTTP 401
+
+==== [2026-11-15T08:58:03Z] 3. POST /api/login -> 200: access_token, refresh_token, expires_in ====
+{"access_token":"eyJhbGciOiJ...(cut)","token":"eyJhbGciOiJ...(cut)","refresh_token":"Im0bKl...","expires_in":120,"expires_at":1794733203}
+
+==== [2026-11-15T08:58:04Z] 4. GET / з Authorization: Bearer <access_token> -> 200, дані користувача ====
+{"username":"holoshumov.bpz.lab@example.com","email":"holoshumov.bpz.lab@example.com","sub":"auth0|6af8f0a21bebf360b205420f","token_expires_at":1794733203,"token_expires_in":119,"token_format":"JWE (RSA-OAEP-256 + A256GCM)","verified_claims":{"iss":"https://dev-b5ra33c6diywgvbd.us.auth0.com/","aud":["https://bpz-lab-api","https://dev-b5ra33c6diywgvbd.us.auth0.com/userinfo"],"sub":"auth0|6af8f0a21bebf360b205420f","exp":1794733203},"refreshed":null,"logout":"http://localhost:3000/logout"}
+HTTP 200
+
+==== [2026-11-15T08:58:04Z] 5. GET / із зіпсованим токеном -> 401 ====
+{"error":"invalid_token","message":"decryption operation failed","code":"ERR_JWE_DECRYPTION_FAILED"}
+HTTP 401
+
+==== [2026-11-15T08:58:04Z] 6. POST /api/signup -> 201 (Management API, токен client_credentials) ====
+{"user_id":"auth0|6af9741cd3444608d215c3f9","email":"signup-1794733084@example.com"}
+HTTP 201
+
+==== [2026-11-15T08:58:04Z] 7. POST /api/signup ще раз -> 201 (у консолі сервера: Management-токен з кешу) ====
+{"user_id":"auth0|6af9741d4923b7ec556bf706","email":"signup2-1794733084@example.com"}
+HTTP 201
+
+==== [2026-11-15T08:58:05Z] 8. POST /api/signup з наявним email -> 409 ====
+{"error":"Conflict","message":"The user already exists."}
+HTTP 409
+
+==== [2026-11-15T08:58:05Z] 9. Чекаємо 62 с, поки до exp лишиться < 60 с ====
+
+==== [2026-11-15T08:59:07Z] 10. GET / зі старим токеном + X-Refresh-Token -> сервер оновлює токен (поле refreshed) ====
+{"username":"holoshumov.bpz.lab@example.com","email":"holoshumov.bpz.lab@example.com","sub":"auth0|6af8f0a21bebf360b205420f","token_expires_at":1794733267,"token_expires_in":119,"token_format":"JWE (RSA-OAEP-256 + A256GCM)","verified_claims":{"iss":"https://dev-b5ra33c6diywgvbd.us.auth0.com/","aud":["https://bpz-lab-api","https://dev-b5ra33c6diywgvbd.us.auth0.com/userinfo"],"sub":"auth0|6af8f0a21bebf360b205420f","exp":1794733203},"refreshed":{"access_token":"eyJhbGciOiJ...(cut)","token":"eyJhbGciOiJ...(cut)","refresh_token":"Im0bKl...","expires_in":120,"expires_at":1794733267},"logout":"http://localhost:3000/logout"}
+HTTP 200
+
