@@ -1,6 +1,6 @@
 # БПЗ 2026 — ЛР2–ЛР6 (Auth0)
 
-Голошумов В. М., ІМ-31. Node.js 18+ (перевірено на v24), Express, `jose`.
+Голошумов В. М., ІМ-31. Репозиторій: https://github.com/holoshumov/bpz-labs. Node.js 18+ (перевірено на v24), Express, `jose`.
 
 ```bash
 cd auth0-labs
