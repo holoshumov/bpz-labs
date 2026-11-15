@@ -43,6 +43,6 @@ cp .env.example .env   # заповнити (див. нижче)
 | ЛР5 | `npm run lab5`, `node lab5/demo.js` | перевірка RS256 (JWKS, iss/aud/exp), JWE |
 | ЛР6 | `npm run lab6` → http://localhost:3000 | SSO, authorization code + state + PKCE, logout |
 
-У кожній папці: `README.md`, `NOTES.md` (теорія, що зроблено, питання до захисту), `SCREENSHOTS_CHECKLIST.md`, `evidence/`.
+У кожній папці: `README.md`, `SCREENSHOTS_CHECKLIST.md`, `evidence/`.
 
 `evidence/*.log` — запити й відповіді з обрізаними токенами (в git). `evidence/raw/*.log` — повні токени для скріншотів (у `.gitignore`); `client_secret` і паролі приховано й там.
