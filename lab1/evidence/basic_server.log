@@ -1,0 +1,21 @@
+Example app listening on port 3000
+
+=======================================================
+
+authorizationHeader undefined
+
+=======================================================
+
+authorizationHeader undefined
+
+=======================================================
+
+authorizationHeader Basic RGF0ZUFydDp3cm9uZw==
+decodedAuthorizationHeader DateArt:wrong
+Login/Password DateArt wrong
+
+=======================================================
+
+authorizationHeader Basic RGF0ZUFydDoyNDA4
+decodedAuthorizationHeader DateArt:2408
+Login/Password DateArt 2408

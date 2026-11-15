@@ -1,0 +1,9 @@
+JWT token_auth app listening on port 3000
+Issued JWT: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJMb2dpbiIsInVzZXJuYW1lIjoiVXNlcm5hbWUiLCJpYXQiOjE3OTQ2OTU1MTIsImV4cCI6MTc5NDY5OTExMn0.2STSzgMhg7XaRxv1jRDTMKoukd_zgP_wRppSwRzVq5E
+JWT OK, payload: {
+  sub: 'Login',
+  username: 'Username',
+  iat: 1794695512,
+  exp: 1794699112
+}
+JWT rejected: Invalid signature

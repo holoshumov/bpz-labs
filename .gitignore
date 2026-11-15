@@ -8,5 +8,4 @@ node_modules/
 .DS_Store
 # Містить client_secret викладача — не публікувати
 TASKS_ALL.md
-# lab1 поки що окремий git-репозиторій (див. README) — додається окремим кроком
-lab1/
+.lab1-git-backup/
