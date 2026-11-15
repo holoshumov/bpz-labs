@@ -11,6 +11,6 @@
 | ЛР5 | Перевірка підпису JWT (RS256, JWKS), шифрування JWE | [auth0-labs/lab5/](auth0-labs/lab5/) |
 | ЛР6 | Вхід через сторінку SSO: authorization code + state + PKCE | [auth0-labs/lab6/](auth0-labs/lab6/) |
 
-Запуск: див. `lab1/README.md` і `auth0-labs/README.md`. У кожній ЛР є `SCREENSHOTS_CHECKLIST.md` і `evidence/` (логи запитів і відповідей; токени обрізано).
+Запуск: див. `lab1/README.md` і `auth0-labs/README.md`. У кожній ЛР є `NOTES.md` (теорія, що зроблено, питання до захисту), `SCREENSHOTS_CHECKLIST.md` і `evidence/` (логи запитів і відповідей; токени обрізано).
 
 Секрети (`.env`) у репозиторій не входять — див. `auth0-labs/.env.example`.

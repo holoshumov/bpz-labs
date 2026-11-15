@@ -9,5 +9,3 @@ node_modules/
 # Містить client_secret викладача — не публікувати
 TASKS_ALL.md
 .lab1-git-backup/
-**/NOTES.md
-NOTES.md
